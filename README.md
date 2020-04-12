@@ -35,11 +35,11 @@ Robert C. Martin의 책인 [*클린 코드*](http://www.yes24.com/Product/Goods/
 
 **[⬆ 상단으로](#목차)**
 
-## Variables
+## 변수(Variables)
 
-### Use meaningful variable names
+### 의미있는 변수 이름을 사용하세요
 
-Distinguish names in such a way that the reader knows what the differences offer.
+읽는 사람으로 하여금 변수마다 어떤 점이 다른지 알 수 있도록 이름을 구별하세요.
 
 **Bad:**
 
@@ -60,9 +60,9 @@ function between<T>(value: T, left: T, right: T): boolean {
 
 **[⬆ 상단으로](#목차)**
 
-### Use pronounceable variable names
+### 발음할 수 있는 변수 이름을 사용하세요
 
-If you can’t pronounce it, you can’t discuss it without sounding like an idiot.
+발음할 수 없는 이름은 그 변수에 대해서 바보 같이 소리내어 토론할 수 밖에 없습니다.
 
 **Bad:**
 
@@ -86,7 +86,7 @@ type Customer = {
 
 **[⬆ 상단으로](#목차)**
 
-### Use the same vocabulary for the same type of variable
+### 동일한 유형의 변수는 동일한 단어를 사용하세요
 
 **Bad:**
 
@@ -104,21 +104,21 @@ function getUser(): User;
 
 **[⬆ 상단으로](#목차)**
 
-### Use searchable names
+### 검색할 수 있는 이름을 사용하세요
 
-We will read more code than we will ever write. It's important that the code we do write is readable and searchable. By *not* naming variables that end up being meaningful for understanding our program, we hurt our readers. Make your names searchable. Tools like [TSLint](https://palantir.github.io/tslint/rules/no-magic-numbers/) can help identify unnamed constants.
+코드를 쓸 때보다 읽을 때가 더 많기 때문에 우리가 쓰는 코드는 읽을 수 있고 검색이 가능해야 합니다. 프로그램을 이해할 때 의미있는 변수 이름을 짓지 않으면 읽는 사람으로 하여금 어려움을 줄 수 있습니다. 검색 가능한 이름을 지으세요. [TSLint](https://palantir.github.io/tslint/rules/no-magic-numbers/)와 같은 도구는 이름이 없는 상수를 식별할 수 있도록 도와줍니다.
 
 **Bad:**
 
 ```ts
-// What the heck is 86400000 for?
+// 86400000이 도대체 뭐지?
 setTimeout(restart, 86400000);
 ```
 
 **Good:**
 
 ```ts
-// Declare them as capitalized named constants.
+// 대문자로 이루어진 상수로 선언하세요.
 const MILLISECONDS_IN_A_DAY = 24 * 60 * 60 * 1000;
 
 setTimeout(restart, MILLISECONDS_IN_A_DAY);
@@ -126,7 +126,7 @@ setTimeout(restart, MILLISECONDS_IN_A_DAY);
 
 **[⬆ 상단으로](#목차)**
 
-### Use explanatory variables
+### 의도를 나타내는 변수를 사용하세요
 
 **Bad:**
 
@@ -134,7 +134,7 @@ setTimeout(restart, MILLISECONDS_IN_A_DAY);
 declare const users: Map<string, User>;
 
 for (const keyValue of users) {
-  // iterate through users map
+  // users 맵을 순회
 }
 ```
 
@@ -144,16 +144,16 @@ for (const keyValue of users) {
 declare const users: Map<string, User>;
 
 for (const [id, user] of users) {
-  // iterate through users map
+  // users 맵을 순회
 }
 ```
 
 **[⬆ 상단으로](#목차)**
 
-### Avoid Mental Mapping
+### 암시하는 이름은 사용하지 마세요
 
-Explicit is better than implicit.  
-*Clarity is king.*
+명시적인 것이 암시적인 것보다 좋습니다.  
+*명료함은 최고입니다.*
 
 **Bad:**
 
@@ -173,9 +173,9 @@ const transaction = charge(user, subscription);
 
 **[⬆ 상단으로](#목차)**
 
-### Don't add unneeded context
+### 불필요한 문맥은 추가하지 마세요
 
-If your class/type/object name tells you something, don't repeat that in your variable name.
+클래스/타입/객체의 이름에 의미가 담겨있다면, 변수 이름에서 반복하지 마세요.
 
 **Bad:**
 
@@ -207,9 +207,9 @@ function print(car: Car): void {
 
 **[⬆ 상단으로](#목차)**
 
-### Use default arguments instead of short circuiting or conditionals
+### short circuiting이나 조건문 대신 기본 인수를 사용하세요
 
-Default arguments are often cleaner than short circuiting.
+기본 인수는 short circuiting보다 보통 명료합니다.
 
 **Bad:**
 
@@ -230,10 +230,9 @@ function loadPages(count: number = 10) {
 
 **[⬆ 상단으로](#목차)**
 
-### Use enum to document the intent
+### 의도를 알려주기 위해 `enum`을 사용하세요
 
-Enums can help you document the intent of the code. For example when we are concerned about values being
-different rather than the exact value of those.
+예를 들어 그것들의 값 자체보다 값이 구별되어야 할 때와 같이 코드의 의도를 알려주는데에 `enum`은 도움을 줄 수 있습니다.
 
 **Bad:**
 
@@ -248,11 +247,11 @@ const GENRE = {
 projector.configureFilm(GENRE.COMEDY);
 
 class Projector {
-  // delactation of Projector
+  // Projector의 선언
   configureFilm(genre) {
     switch (genre) {
       case GENRE.ROMANTIC:
-        // some logic to be executed 
+        // 실행되어야 하는 로직
     }
   }
 }
@@ -271,11 +270,11 @@ enum GENRE {
 projector.configureFilm(GENRE.COMEDY);
 
 class Projector {
-  // delactation of Projector
+  // Projector의 선언
   configureFilm(genre) {
     switch (genre) {
       case GENRE.ROMANTIC:
-        // some logic to be executed 
+        // 실행되어야 하는 로직
     }
   }
 }
