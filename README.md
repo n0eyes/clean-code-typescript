@@ -9,7 +9,7 @@
 
   1. [소개(Introduction)](#소개introduction)
   2. [변수(Variables)](#변수variables)
-  3. [Functions](#functions)
+  3. [함수(Functions)](#함수functions)
   4. [Objects and Data Structures](#objects-and-data-structures)
   5. [Classes](#classes)
   6. [SOLID](#solid)
@@ -207,9 +207,9 @@ function print(car: Car): void {
 
 **[⬆ 상단으로](#목차)**
 
-### short circuiting이나 조건문 대신 기본 인수를 사용하세요
+### short circuiting이나 조건문 대신 기본 매개변수를 사용하세요
 
-기본 인수는 short circuiting보다 보통 명료합니다.
+기본 매개변수는 short circuiting보다 보통 명료합니다.
 
 **Bad:**
 
@@ -282,29 +282,29 @@ class Projector {
 
 **[⬆ 상단으로](#목차)**
 
-## Functions
+## 함수(Functions)
 
-### Function arguments (2 or fewer ideally)
+### 함수의 매개변수는 2개 혹은 그 이하가 이상적입니다
 
-Limiting the amount of function parameters is incredibly important because it makes testing your function easier.
-Having more than three leads to a combinatorial explosion where you have to test tons of different cases with each separate argument.  
+함수 매개변수의 개수를 제한하는 것은 함수를 테스트하기 쉽게 만들어주기 때문에 놀라울 정도로 중요합니다.
+함수 매개변수가 3개 이상인 경우, 각기 다른 인수로 여러 다른 케이스를 테스트해야 하므로 경우의 수가 매우 많아집니다.  
 
-One or two arguments is the ideal case, and three should be avoided if possible. Anything more than that should be consolidated.
-Usually, if you have more than two arguments then your function is trying to do too much.
-In cases where it's not, most of the time a higher-level object will suffice as an argument.  
+한 개 혹은 두 개의 매개변수가 이상적인 경우고, 가능하다면 세 개는 피해야 합니다. 그 이상의 경우에는 합쳐야 합니다.
+두 개 이상의 매개변수를 가질 경우, 함수가 많은 것을 할 가능성이 높아집니다.
+그렇지 않은 경우, 대부분 상위 객체는 하나의 매개변수로 충분할 것입니다.   
 
-Consider using object literals if you are finding yourself needing a lot of arguments.  
+많은 매개변수를 사용해야 한다면 객체 리터럴을 사용하는 것을 고려해보세요.  
 
-To make it obvious what properties the function expects, you can use the [destructuring](https://basarat.gitbook.io/typescript/future-javascript/destructuring) syntax.
-This has a few advantages:
+함수가 기대하는 속성을 명확하게 하기 위해, [구조 분해](https://basarat.gitbook.io/typescript/future-javascript/destructuring) 구문을 사용할 수 있습니다.
+이 구문은 몇 개의 장점을 가지고 있습니다:  
 
-1. When someone looks at the function signature, it's immediately clear what properties are being used.
+1. 어떤 사람이 함수 시그니쳐(매개변수의 타입, 반환값의 타입 등)를 볼 때, 어떤 속성이 사용되는지 즉시 알 수 있습니다.
 
-2. It can be used to simulate named parameters.
+2. 명명된 매개변수처럼 보이게 할 때 사용할 수 있습니다.
 
-3. Destructuring also clones the specified primitive values of the argument object passed into the function. This can help prevent side effects. Note: objects and arrays that are destructured from the argument object are NOT cloned.
+3. 또한 구조 분해는 함수로 전달된 매개변수 객체의 특정한 원시 값을 복제하며 이것은 부수 효과(side effect)를 방지하는데 도움을 줍니다. 유의사항: 매개변수 객체로부터 구조 분해된 객체와 배열은 **복제되지 않습니다.**
 
-4. TypeScript warns you about unused properties, which would be impossible without destructuring.
+4. 타입스크립트는 사용하지 않은 속성에 대해서 경고를 주며, 구조 분해를 사용하면 경고를 받지 않을 수 있습니다.
 
 **Bad:**
 
@@ -331,7 +331,7 @@ createMenu({
 });
 ```
 
-You can further improve readability by using [type aliases](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-aliases):
+[type aliases](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-aliases)를 사용해서 가독성을 더 높일 수 있습니다:
 
 ```ts
 
@@ -351,9 +351,10 @@ createMenu({
 
 **[⬆ 상단으로](#목차)**
 
-### Functions should do one thing
+### 함수는 한가지만 해야합니다
 
-This is by far the most important rule in software engineering. When functions do more than one thing, they are harder to compose, test, and reason about. When you can isolate a function to just one action, it can be refactored easily and your code will read much cleaner. If you take nothing else away from this guide other than this, you'll be ahead of many developers.
+이것은 소프트웨어 공학에서 단연코 중요한 규칙입니다. 함수가 한가지 이상의 역할을 할 때 작성하고 테스트하고 추론하기 어려워집니다. 함수를 하나의 행동으로 정의할 수 있을 때, 쉽게 리팩토링할 수 있으며 코드를 더욱 명료하게 읽을 수 있습니다.
+이 가이드에서 이 부분만 자기것으로 만들어도 당신은 많은 개발자보다 앞설 수 있습니다.
 
 **Bad:**
 
@@ -383,7 +384,7 @@ function isActiveClient(client: Client) {
 
 **[⬆ 상단으로](#목차)**
 
-### Function names should say what they do
+### 함수가 무엇을 하는지 알 수 있도록 함수 이름을 지으세요
 
 **Bad:**
 
@@ -394,7 +395,7 @@ function addToDate(date: Date, month: number): Date {
 
 const date = new Date();
 
-// It's hard to tell from the function name what is added
+// 무엇이 추가되는지 함수 이름만으로 유추하기 어렵습니다
 addToDate(date, 1);
 ```
 
@@ -411,9 +412,9 @@ addMonthToDate(date, 1);
 
 **[⬆ 상단으로](#목차)**
 
-### Functions should only be one level of abstraction
+### 함수는 단일 행동을 추상화해야 합니다
 
-When you have more than one level of abstraction your function is usually doing too much. Splitting up functions leads to reusability and easier testing.
+함수가 한가지 이상을 추상화한다면 그 함수는 너무 많은 일을 하게 됩니다. 재사용성과 쉬운 테스트를 위해서 함수를 쪼개세요.
 
 **Bad:**
 
@@ -479,7 +480,7 @@ function parse(tokens: Token[]): SyntaxTree {
 
 **[⬆ 상단으로](#목차)**
 
-### Remove duplicate code
+### 중복된 코드를 제거해주세요
 
 Do your absolute best to avoid duplicate code.
 Duplicate code is bad because it means that there's more than one place to alter something if you need to change some logic.  
