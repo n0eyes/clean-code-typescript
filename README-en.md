@@ -1,14 +1,12 @@
 # clean-code-typescript [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Clean%20Code%20Typescript&url=https://github.com/labs42io/clean-code-typescript)
 
-> 번역 작업 진행중입니다.
+Clean Code concepts adapted for TypeScript.  
+Inspired from [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript).
 
-타입스크립트를 위한 클린코드.  
-[clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript)에서 영감을 받았습니다.
+## Table of Contents
 
-## 목차
-
-  1. [소개(Introduction)](#소개introduction)
-  2. [변수(Variables)](#변수variables)
+  1. [Introduction](#introduction)
+  2. [Variables](#variables)
   3. [Functions](#functions)
   4. [Objects and Data Structures](#objects-and-data-structures)
   5. [Classes](#classes)
@@ -20,20 +18,35 @@
   11. [Comments](#comments)
   12. [Translations](#translations)
 
-## 소개(Introduction)
+## Introduction
 
 ![Humorous image of software quality estimation as a count of how many expletives
 you shout when reading code](https://www.osnews.com/images/comics/wtfm.jpg)
 
-Robert C. Martin의 책인 [*클린 코드*](http://www.yes24.com/Product/Goods/11681152)에 있는 소프트웨어 공학 방법론을 타입스크립트에 적용한 글입니다. 이 글은 스타일 가이드가 아닙니다. 이 글은 타입스크립트에서 [읽기 쉽고, 재사용 가능하며, 리팩토링 가능한](https://github.com/ryanmcdermott/3rs-of-software-architecture) 소프트웨어를 작성하기 위한 가이드입니다.
+Software engineering principles, from Robert C. Martin's book
+[*Clean Code*](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882),
+adapted for TypeScript. This is not a style guide. It's a guide to producing
+[readable, reusable, and refactorable](https://github.com/ryanmcdermott/3rs-of-software-architecture) software in TypeScript.
 
-여기 있는 모든 규칙을 엄격하게 따를 필요는 없으며, 보편적으로 통용되는 규칙은 아닙니다. 이 글은 하나의 지침일 뿐이며, *클린 코드*의 저자가 수년간 경험한 내용을 바탕으로 정리한 것입니다.
+Not every principle herein has to be strictly followed, and even fewer will be
+universally agreed upon. These are guidelines and nothing more, but they are
+ones codified over many years of collective experience by the authors of
+*Clean Code*.
 
-소프트웨어 공학 기술의 역사는 50년이 조금 넘었고, 배워야 할 것이 여전히 많습니다. 소프트웨어 설계가 건축 설계만큼 오래되었을 때는 아마도 아래 규칙들보다 엄격한 규칙을 따라야 할 것입니다. 하지만 지금은 이 지침을 당신과 당신 팀이 작성하는 타입스크립트 코드의 품질을 평가하는 기준으로 삼으세요.
+Our craft of software engineering is just a bit over 50 years old, and we are
+still learning a lot. When software architecture is as old as architecture
+itself, maybe then we will have harder rules to follow. For now, let these
+guidelines serve as a touchstone by which to assess the quality of the
+TypeScript code that you and your team produce.
 
-한 가지 더 덧붙이자면, 이 규칙들을 알게 된다 해서 당장 더 나은 개발자가 되는 것은 아니며 코드를 작성할 때 실수를 하지 않게 해주는 것은 아닙니다. 훌륭한 도자기들이 처음엔 말랑한 점토부터 시작하듯이 모든 코드를 처음부터 완벽할 수 없습니다. 하지만 당신은 팀원들과 같이 코드를 리뷰하며 점점 완벽하게 만들어 나가야 합니다. 당신이 처음 작성한 코드를 고칠 때 절대로 자신을 질타하지 마세요. 대신 코드를 부수고 더 나은 코드를 만드세요!
+One more thing: knowing these won't immediately make you a better software
+developer, and working with them for many years doesn't mean you won't make
+mistakes. Every piece of code starts as a first draft, like wet clay getting
+shaped into its final form. Finally, we chisel away the imperfections when
+we review it with our peers. Don't beat yourself up for first drafts that need
+improvement. Beat up the code instead!
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ## Variables
 
@@ -58,7 +71,7 @@ function between<T>(value: T, left: T, right: T): boolean {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Use pronounceable variable names
 
@@ -84,7 +97,7 @@ type Customer = {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Use the same vocabulary for the same type of variable
 
@@ -102,7 +115,7 @@ function getUserData(): User;
 function getUser(): User;
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Use searchable names
 
@@ -124,7 +137,7 @@ const MILLISECONDS_IN_A_DAY = 24 * 60 * 60 * 1000;
 setTimeout(restart, MILLISECONDS_IN_A_DAY);
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Use explanatory variables
 
@@ -148,7 +161,7 @@ for (const [id, user] of users) {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Avoid Mental Mapping
 
@@ -171,7 +184,7 @@ const subscription = getSubscription();
 const transaction = charge(user, subscription);
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Don't add unneeded context
 
@@ -205,7 +218,7 @@ function print(car: Car): void {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Use default arguments instead of short circuiting or conditionals
 
@@ -228,7 +241,7 @@ function loadPages(count: number = 10) {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Use enum to document the intent
 
@@ -281,7 +294,7 @@ class Projector {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ## Functions
 
@@ -350,7 +363,7 @@ createMenu({
 });
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Functions should do one thing
 
@@ -382,7 +395,7 @@ function isActiveClient(client: Client) {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Function names should say what they do
 
@@ -410,7 +423,7 @@ const date = new Date();
 addMonthToDate(date, 1);
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Functions should only be one level of abstraction
 
@@ -478,7 +491,7 @@ function parse(tokens: Token[]): SyntaxTree {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Remove duplicate code
 
@@ -569,7 +582,7 @@ function showEmployeeList(employee: Developer | Manager) {
 
 You should be critical about code duplication. Sometimes there is a tradeoff between duplicated code and increased complexity by introducing unnecessary abstraction. When two implementations from two different modules look similar but live in different domains, duplication might be acceptable and preferred over extracting the common code. The extracted common code in this case introduces an indirect dependency between the two modules.
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Set default objects with Object.assign or destructuring
 
@@ -624,7 +637,7 @@ createMenu({ body: 'Bar' });
 To avoid any side effects and unexpected behavior by passing in explicitly the `undefined` or `null` value, you can tell the TypeScript compiler to not allow it.
 See [`--strictNullChecks`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#--strictnullchecks) option in TypeScript.
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Don't use flags as function parameters
 
@@ -655,7 +668,7 @@ function createFile(name: string) {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Avoid Side Effects (part 1)
 
@@ -697,7 +710,7 @@ const encodedName = toBase64(name);
 console.log(name);
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Avoid Side Effects (part 2)
 
@@ -729,7 +742,7 @@ function addItemToCart(cart: CartItem[], item: Item): CartItem[] {
 };
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Don't write to global functions
 
@@ -763,7 +776,7 @@ class MyArray<T> extends Array<T> {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Favor functional programming over imperative programming
 
@@ -818,7 +831,7 @@ const totalOutput = contributions
   .reduce((totalLines, output) => totalLines + output.linesOfCode, 0);
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Encapsulate conditionals
 
@@ -842,7 +855,7 @@ if (canActivateService(subscription, account)) {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Avoid negative conditionals
 
@@ -870,7 +883,7 @@ if (!isEmailUsed(node)) {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Avoid conditionals
 
@@ -935,7 +948,7 @@ class Cessna extends Airplane {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Avoid type checking
 
@@ -965,7 +978,7 @@ function travelToTexas(vehicle: Vehicle) {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Don't over-optimize
 
@@ -989,7 +1002,7 @@ for (let i = 0; i < list.length; i++) {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Remove dead code
 
@@ -1022,7 +1035,7 @@ const req = requestModule;
 inventoryTracker('apples', req, 'www.inventory-awesome.io');
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Use iterators and generators
 
@@ -1105,7 +1118,7 @@ itiriri(fibonacci())
   .forEach(fib => console.log(fib));
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ## Objects and Data Structures
 
@@ -1171,7 +1184,7 @@ const account = new BankAccount();
 account.balance = 100;
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Make objects have private/protected members
 
@@ -1214,7 +1227,7 @@ class Circle {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Prefer immutability
 
@@ -1312,7 +1325,7 @@ const result = readonlyData(100);
 result.value = 200; // error
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### type vs. interface
 
@@ -1370,7 +1383,7 @@ class Square implements Shape {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ## Classes
 
@@ -1414,7 +1427,7 @@ class Dashboard {
 // ...
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### High cohesion and low coupling
 
@@ -1494,7 +1507,7 @@ class UserNotifier {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Prefer composition over inheritance
 
@@ -1563,7 +1576,7 @@ class EmployeeTaxData {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Use method chaining
 
@@ -1645,7 +1658,7 @@ const query = new QueryBuilder()
   .build();
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ## SOLID
 
@@ -1700,7 +1713,7 @@ class UserSettings {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Open/Closed Principle (OCP)
 
@@ -1793,7 +1806,7 @@ class HttpRequester {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Liskov Substitution Principle (LSP)
 
@@ -1910,7 +1923,7 @@ const shapes = [new Rectangle(4, 5), new Rectangle(4, 5), new Square(5)];
 renderLargeShapes(shapes);
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Interface Segregation Principle (ISP)
 
@@ -1991,7 +2004,7 @@ class EconomicPrinter implements Printer {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Dependency Inversion Principle (DIP)
 
@@ -2088,7 +2101,7 @@ const reader = new ReportReader(new JsonFormatter());
 await report = await reader.read('report.json');
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ## Testing
 
@@ -2106,7 +2119,7 @@ There's no excuse to not write tests. There are [plenty of good JS test framewor
 
 3. You are not allowed to write any more production code than is sufficient to pass the one failing unit test.
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### F.I.R.S.T. rules
 
@@ -2122,7 +2135,7 @@ Clean tests should follow the rules:
 
 - **Timely** unit tests should be written before the production code. If you write tests after the production code, you might find writing tests too hard.
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Single concept per test
 
@@ -2172,7 +2185,7 @@ describe('AwesomeDate', () => {
 });
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### The name of the test should reveal its intention
 
@@ -2206,7 +2219,7 @@ describe('Calendar', () => {
 });
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ## Concurrency
 
@@ -2277,7 +2290,7 @@ Promises supports a few helper methods that help make code more conscise:
 
 `Promise.all` is especially useful when there is a need to run tasks in parallel. `Promise.race` makes it easier to implement things like timeouts for promises.
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Async/Await are even cleaner than Promises
 
@@ -2325,7 +2338,7 @@ try {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ## Error Handling
 
@@ -2392,7 +2405,7 @@ function calculateTotal(items: Item[]): Failable<number, 'empty'> {
 
 For the detailed explanation of this idea refer to the [original post](https://medium.com/@dhruvrajvanshi/making-exceptions-type-safe-in-typescript-c4d200ee78e9).
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Don't ignore caught errors
 
@@ -2428,7 +2441,7 @@ try {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Don't ignore rejected promises
 
@@ -2469,7 +2482,7 @@ try {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ## Formatting
 
@@ -2532,7 +2545,7 @@ type Container = { /* ... */ }
 Prefer using `PascalCase` for class, interface, type and namespace names.  
 Prefer using `camelCase` for variables, functions and class members.
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Function callers and callees should be close
 
@@ -2621,7 +2634,7 @@ const review = new PerformanceReview(employee);
 review.review();
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Organize imports
 
@@ -2667,7 +2680,7 @@ import { ApiCredentials, Adapters } from './common/api/authorization';
 import { ConfigPlugin } from './plugins/config/configPlugin';
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Use typescript aliases
 
@@ -2701,7 +2714,7 @@ import { UserService } from '@services/UserService';
 ...
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ## Comments
 
@@ -2728,7 +2741,7 @@ const isSubscriptionActive = subscription.endDate > Date.now;
 if (isSubscriptionActive) { /* ... */ }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Don't leave commented out code in your codebase
 
@@ -2754,7 +2767,7 @@ type User = {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Don't have journal comments
 
@@ -2782,7 +2795,7 @@ function combine(a: number, b: number): number {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### Avoid positional markers
 
@@ -2844,7 +2857,7 @@ class Client {
 };
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ### TODO comments
 
@@ -2872,7 +2885,7 @@ function getActiveSubscriptions(): Promise<Subscription[]> {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ back to top](#table-of-contents)**
 
 ## Translations
 
