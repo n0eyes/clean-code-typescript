@@ -1,4 +1,4 @@
-# clean-code-typescript [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Clean%20Code%20Typescript&url=https://github.com/labs42io/clean-code-typescript)
+# clean-code-typescript [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=클린코드%20타입스크립트&url=https://github.com/738/clean-code-typescript)
 
 > 번역 작업 진행중입니다.
 
