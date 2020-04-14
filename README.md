@@ -18,7 +18,7 @@
   9. [Error Handling](#error-handling)
   10. [Formatting](#formatting)
   11. [Comments](#comments)
-  12. [Translations](#translations)
+  12. [번역(Translations)](#번역translations)
 
 ## 소개(Introduction)
 
@@ -2874,9 +2874,9 @@ function getActiveSubscriptions(): Promise<Subscription[]> {
 
 **[⬆ 상단으로](#목차)**
 
-## Translations
+## 번역(Translations)
 
-This is also available in other languages:
+이 글을 다른 언어로도 읽을 수 있습니다:  
 - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [vitorfreitas/clean-code-typescript](https://github.com/vitorfreitas/clean-code-typescript)
 - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese**: 
   - [beginor/clean-code-typescript](https://github.com/beginor/clean-code-typescript)
@@ -2884,12 +2884,8 @@ This is also available in other languages:
 - ![ja](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japanese**: [MSakamaki/clean-code-typescript](https://github.com/MSakamaki/clean-code-typescript)
 - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [Real001/clean-code-typescript](https://github.com/Real001/clean-code-typescript)
 - ![tr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Turkey.png) **Turkish**: [ozanhonamlioglu/clean-code-typescript](https://github.com/ozanhonamlioglu/clean-code-typescript)
+- ![ko](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Korean**: [738/clean-code-typescript](https://github.com/738/clean-code-typescript)
 
-
-There is work in progress for translating this to other languages:
-
-- ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) Korean
-
-References will be added once translations are completed.  
-Check this [discussion](https://github.com/labs42io/clean-code-typescript/issues/15) for more details and progress.
-You can make an indispensable contribution to *Clean Code* community by translating this to your language.
+번역이 완료되면 참고문헌에 추가됩니다.
+자세한 내용과 진행상황을 보고싶다면 이 [논의](https://github.com/labs42io/clean-code-typescript/issues/15)를 확인하세요.
+당신은 당신의 언어에 이 글을 번역함으로써 *클린 코드* 커뮤니티에 중요한 기여를 할 수 있습니다.
