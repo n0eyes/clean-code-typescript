@@ -17,7 +17,7 @@
   8. [Concurrency](#concurrency)
   9. [Error Handling](#error-handling)
   10. [Formatting](#formatting)
-  11. [Comments](#comments)
+  11. [주석(Comments)](#주석comments)
   12. [번역(Translations)](#번역translations)
 
 ## 소개(Introduction)
@@ -2703,21 +2703,21 @@ import { UserService } from '@services/UserService';
 
 **[⬆ 상단으로](#목차)**
 
-## Comments
+## 주석(Comments)
 
-The use of a comments is an indication of failure to express without them. Code should be the only source of truth.
-  
-> Don’t comment bad code—rewrite it.  
+주석을 사용하는 것은 주석 없이 코드를 작성하는 것이 실패했다는 표시입니다. 코드는 단일 진실 공급원(Single source of truth)이어야 합니다.
+
+> 나쁜 코드에 주석들 달지 마라. 새로 짜라.  
 > — *Brian W. Kernighan and P. J. Plaugher*
 
-### Prefer self explanatory code instead of comments
+### 주석 대신에 자체적으로 설명 가능한 코드를 작성하세요
 
-Comments are an apology, not a requirement. Good code *mostly* documents itself.
+주석은 사과일 뿐, 필요한 것이 아닙니다. 좋은 코드는 대부분 그 존재 자체로 문서화가 됩니다.
 
 **Bad:**
 
 ```ts
-// Check if subscription is active.
+// subscription이 활성화 상태인지 체크합니다.
 if (subscription.endDate > Date.now) {  }
 ```
 
@@ -2730,9 +2730,9 @@ if (isSubscriptionActive) { /* ... */ }
 
 **[⬆ 상단으로](#목차)**
 
-### Don't leave commented out code in your codebase
+### 당신의 코드를 주석 처리하지 마세요
 
-Version control exists for a reason. Leave old code in your history.
+버전 관리 시스템이 존재하는 이유입니다. 사용하지 않는 코드는 기록에 남기세요.
 
 **Bad:**
 
@@ -2756,9 +2756,9 @@ type User = {
 
 **[⬆ 상단으로](#목차)**
 
-### Don't have journal comments
+### 일기 같은 주석을 달지 마세요
 
-Remember, use version control! There's no need for dead code, commented code, and especially journal comments. Use `git log` to get history!
+버전 관리 시스템을 사용하세요! 죽은 코드, 주석 처리된 코드, 특히 일기 같은 주석은 필요 없습니다. 대신에 기록을 보기 위해 `git log` 명령어를 사용하세요!
 
 **Bad:**
 
