@@ -302,7 +302,7 @@ class Projector {
 
 2. 명명된 매개변수처럼 보이게 할 때 사용할 수 있습니다.
 
-3. 또한 구조 분해는 함수로 전달된 매개변수 객체의 특정한 원시 값을 복제하며 이것은 부수 효과(side effect)를 방지하는데 도움을 줍니다. 유의사항: 매개변수 객체로부터 구조 분해된 객체와 배열은 **복제되지 않습니다.**
+3. 또한 구조 분해는 함수로 전달된 매개변수 객체의 특정한 원시 값을 복제하며 이것은 사이드 이펙트를 방지하는데 도움을 줍니다. 유의사항: 매개변수 객체로부터 구조 분해된 객체와 배열은 **복제되지 않습니다.**
 
 4. 타입스크립트는 사용하지 않은 속성에 대해서 경고를 주며, 구조 분해를 사용하면 경고를 받지 않을 수 있습니다.
 
@@ -353,7 +353,7 @@ createMenu({
 
 ### 함수는 한가지만 해야합니다
 
-이것은 소프트웨어 공학에서 단연코 중요한 규칙입니다. 함수가 한가지 이상의 역할을 할 때 작성하고 테스트하고 추론하기 어려워집니다. 함수를 하나의 행동으로 정의할 수 있을 때, 쉽게 리팩토링할 수 있으며 코드를 더욱 명료하게 읽을 수 있습니다.
+이것은 소프트웨어 공학에서 단연코 중요한 규칙입니다. 함수가 한가지 이상의 역할을 수행할 때 작성하고 테스트하고 추론하기 어려워집니다. 함수를 하나의 행동으로 정의할 수 있을 때, 쉽게 리팩토링할 수 있으며 코드를 더욱 명료하게 읽을 수 있습니다.
 이 가이드에서 이 부분만 자기것으로 만들어도 당신은 많은 개발자보다 앞설 수 있습니다.
 
 **Bad:**
@@ -482,16 +482,16 @@ function parse(tokens: Token[]): SyntaxTree {
 
 ### 중복된 코드를 제거해주세요
 
-Do your absolute best to avoid duplicate code.
-Duplicate code is bad because it means that there's more than one place to alter something if you need to change some logic.  
+코드가 중복되지 않도록 최선을 다하세요.
+중복된 코드는 어떤 로직을 변경할 때 한 곳 이상을 변경해야 하기 떄문에 좋지 않습니다.   
 
-Imagine if you run a restaurant and you keep track of your inventory: all your tomatoes, onions, garlic, spices, etc.
-If you have multiple lists that you keep this on, then all have to be updated when you serve a dish with tomatoes in them.
-If you only have one list, there's only one place to update!  
+당신이 레스토랑을 운영하면서 재고를 추적한다고 상상해보세요: 모든 토마토, 양파, 마늘, 양념 등.
+관리하는 목록이 여러개일 때 토마토를 넣은 요리를 제공할 때마다 모든 목록을 수정해야 합니다.
+관리하는 목록이 단 하나일 때는 한 곳만 수정하면 됩니다! 
 
-Oftentimes you have duplicate code because you have two or more slightly different things, that share a lot in common, but their differences force you to have two or more separate functions that do much of the same things. Removing duplicate code means creating an abstraction that can handle this set of different things with just one function/module/class.  
+당신은 종종 두 개 이상의 사소한 다른 것들이 있다고 많은 것들이 공유되는 중복되는 코드를 작성합니다. 하지만 그 몇가지 다른 것으로 인해 같은 역할을 하는 두 개 이상의 함수를 만들게 됩니다. 중복된 코드를 제거하는 것은 조금씩 다른 역할을 하는 것을 묶음으로써 하나의 함수/모듈/클래스로 처리하는 추상화를 만드는 것을 의미합니다.
 
-Getting the abstraction right is critical, that's why you should follow the [SOLID](#solid) principles. Bad abstractions can be worse than duplicate code, so be careful! Having said this, if you can make a good abstraction, do it! Don't repeat yourself, otherwise you'll find yourself updating multiple places anytime you want to change one thing.
+추상화를 올바르게 하는 것은 중요하며, 이것은 [SOLID](#solid) 원칙을 따르는 이유이기도 합니다. 올바르지 않은 추상화는 중복된 코드보다 나쁘므로 주의하세요! 좋은 추상화를 할 수 있다면 그렇게 하라는 말입니다! 반복하지 마세요. 그렇지 않으면 하나를 변경할 때마다 여러 곳을 변경하게 될 것입니다.
 
 **Bad:**
 
@@ -567,11 +567,11 @@ function showEmployeeList(employee: Developer | Manager) {
 }
 ```
 
-You should be critical about code duplication. Sometimes there is a tradeoff between duplicated code and increased complexity by introducing unnecessary abstraction. When two implementations from two different modules look similar but live in different domains, duplication might be acceptable and preferred over extracting the common code. The extracted common code in this case introduces an indirect dependency between the two modules.
+당신은 중복된 코드에 대해서 비판적으로 생각해야 합니다. 가끔은 중복된 코드와 불필요한 추상화로 인한 복잡성 간의 맞바꿈이 있을 수 있습니다. 서로 다른 두 개의 모듈의 구현이 유사해보이지만 서로 다른 도메인에 존재하는 경우, 코드 중복은 공통된 코드에서 추출해서 중복을 줄이는 것보다 나은 선택일 수 있습니다. 이 경우에 추출된 공통의 코드는 두 모듈 사이에서 간접적인 의존성이 나타나게 됩니다.
 
 **[⬆ 상단으로](#목차)**
 
-### Set default objects with Object.assign or destructuring
+### `Object.assign` 혹은 구조 분해를 사용해서 기본 객체를 만드세요
 
 **Bad:**
 
@@ -609,7 +609,7 @@ function createMenu(config: MenuConfig) {
 createMenu({ body: 'Bar' });
 ```
 
-Alternatively, you can use destructuring with default values:
+대안으로, 기본 값을 구조 분해를 사용해서 해결할 수 있습니다:
 
 ```ts
 type MenuConfig = { title?: string, body?: string, buttonText?: string, cancellable?: boolean };
@@ -621,15 +621,14 @@ function createMenu({ title = 'Foo', body = 'Bar', buttonText = 'Baz', cancellab
 createMenu({ body: 'Bar' });
 ```
 
-To avoid any side effects and unexpected behavior by passing in explicitly the `undefined` or `null` value, you can tell the TypeScript compiler to not allow it.
-See [`--strictNullChecks`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#--strictnullchecks) option in TypeScript.
+사이드 이펙트와 `undefined` 혹은 `null` 값을 명시적으로 넘기는 예상치못한 행동을 피하기 위해서 타입스크립트 컴파일러에게 그것을 허락하지않도록 설정할 수 있습니다. 타입스크립트에서 [`--strictNullChecks`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#--strictnullchecks) 옵션을 확인하세요.
 
 **[⬆ 상단으로](#목차)**
 
-### Don't use flags as function parameters
+### 함수 매개변수로 플래그를 사용하지 마세요
 
-Flags tell your user that this function does more than one thing.
-Functions should do one thing. Split out your functions if they are following different code paths based on a boolean.
+플래그를 사용하는 것은 해당 함수가 한 가지 이상의 일을 한다는 것을 뜻합니다.
+함수는 한 가지의 일을 해야합니다. boolean 변수로 인해 다른 코드가 실행된다면 그 함수를 쪼개도록 하세요.
 
 **Bad:**
 
@@ -657,14 +656,13 @@ function createFile(name: string) {
 
 **[⬆ 상단으로](#목차)**
 
-### Avoid Side Effects (part 1)
+### 사이드 이펙트를 피하세요 (파트 1)
 
-A function produces a side effect if it does anything other than take a value in and return another value or values.
-A side effect could be writing to a file, modifying some global variable, or accidentally wiring all your money to a stranger.  
+함수는 값을 가져와서 다른 값을 반환하는 것 이외에 다른 것을 할 경우 사이드 이펙트를 발생시킬 수 있습니다. 사이드 이펙트는 파일을 쓴다거나, 전역 변수를 조작한다거나, 뜻하지 않게 낯선 사람에게 당신의 전재산을 송금할 수 있습니다.
 
-Now, you do need to have side effects in a program on occasion. Like the previous example, you might need to write to a file.
-What you want to do is to centralize where you are doing this. Don't have several functions and classes that write to a particular file.
-Have one service that does it. One and only one.  
+당신은 가끔 프로그램에서 사이드 이펙트를 가질 필요가 있습니다. 이전의 사례에서와 같이 당신은 파일을 써야할 때가 있습니다.
+당신이 하고 싶은 것은 이것을 하는 곳을 중앙화하는 것입니다. 특정 파일을 쓰기 위해 몇 개의 함수와 클래스를 만들지 마세요.
+그것을 행하는 서비스를 하나만 만드세요. 오직 하나입니다.
 
 The main point is to avoid common pitfalls like sharing state between objects without any structure, using mutable data types that can be written to by anything, and not centralizing where your side effects occur. If you can do this, you will be happier than the vast majority of other programmers.
 
@@ -699,7 +697,7 @@ console.log(name);
 
 **[⬆ 상단으로](#목차)**
 
-### Avoid Side Effects (part 2)
+### 사이드 이펙트를 피하세요 (파트 2)
 
 In JavaScript, primitives are passed by value and objects/arrays are passed by reference. In the case of objects and arrays, if your function makes a change in a shopping cart array, for example, by adding an item to purchase, then any other function that uses that `cart` array will be affected by this addition. That may be great, however it can be bad too. Let's imagine a bad situation:  
 
@@ -731,7 +729,7 @@ function addItemToCart(cart: CartItem[], item: Item): CartItem[] {
 
 **[⬆ 상단으로](#목차)**
 
-### Don't write to global functions
+### 전역 함수를 작성하지 마세요
 
 Polluting globals is a bad practice in JavaScript because you could clash with another library and the user of your API would be none-the-wiser until they get an exception in production. Let's think about an example: what if you wanted to extend JavaScript's native Array method to have a `diff` method that could show the difference between two arrays? You could write your new function to the `Array.prototype`, but it could clash with another library that tried to do the same thing. What if that other library was just using `diff` to find the difference between the first and last elements of an array? This is why it would be much better to just use classes and simply extend the `Array` global.
 
@@ -765,9 +763,9 @@ class MyArray<T> extends Array<T> {
 
 **[⬆ 상단으로](#목차)**
 
-### Favor functional programming over imperative programming
+### 명령형 프로그래밍보다 함수형 프로그래밍을 지향하세요
 
-Favor this style of programming when you can.
+가능하다면 이런 방식의 프로그래밍을 지향하세요.
 
 **Bad:**
 
@@ -820,7 +818,7 @@ const totalOutput = contributions
 
 **[⬆ 상단으로](#목차)**
 
-### Encapsulate conditionals
+### 조건문을 캡슐화하세요
 
 **Bad:**
 
@@ -844,7 +842,7 @@ if (canActivateService(subscription, account)) {
 
 **[⬆ 상단으로](#목차)**
 
-### Avoid negative conditionals
+### 부정 조건문을 피하세요
 
 **Bad:**
 
@@ -872,7 +870,7 @@ if (!isEmailUsed(node)) {
 
 **[⬆ 상단으로](#목차)**
 
-### Avoid conditionals
+### 조건문을 피하세요
 
 This seems like an impossible task. Upon first hearing this, most people say, "how am I supposed to do anything without an `if` statement?" The answer is that you can use polymorphism to achieve the same task in many cases. The second question is usually, "well that's great but why would I want to do that?" The answer is a previous clean code concept we learned: a function should only do one thing. When you have classes and functions that have `if` statements, you are telling your user that your function does more than one thing. Remember, just do one thing.
 
@@ -937,7 +935,7 @@ class Cessna extends Airplane {
 
 **[⬆ 상단으로](#목차)**
 
-### Avoid type checking
+### 타입 체킹을 피하세요
 
 TypeScript is a strict syntactical superset of JavaScript and adds optional static type checking to the language.
 Always prefer to specify types of variables, parameters and return values to leverage the full power of TypeScript features.
@@ -967,7 +965,7 @@ function travelToTexas(vehicle: Vehicle) {
 
 **[⬆ 상단으로](#목차)**
 
-### Don't over-optimize
+### 필요 이상으로 최적화하지 마세요
 
 Modern browsers do a lot of optimization under-the-hood at runtime. A lot of times, if you are optimizing then you are just wasting your time. There are good [resources](https://github.com/petkaantonov/bluebird/wiki/Optimization-killers) for seeing where optimization is lacking. Target those in the meantime, until they are fixed if they can be.
 
@@ -991,7 +989,7 @@ for (let i = 0; i < list.length; i++) {
 
 **[⬆ 상단으로](#목차)**
 
-### Remove dead code
+### 필요하지 않는 코드는 제거하세요
 
 Dead code is just as bad as duplicate code. There's no reason to keep it in your codebase.
 If it's not being called, get rid of it! It will still be safe in your version history if you still need it.
@@ -1024,7 +1022,7 @@ inventoryTracker('apples', req, 'www.inventory-awesome.io');
 
 **[⬆ 상단으로](#목차)**
 
-### Use iterators and generators
+### 이터레이터와 제너레이터를 사용하세요
 
 Use generators and iterables when working with collections of data used like a stream.  
 There are some good reasons:
