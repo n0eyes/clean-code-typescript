@@ -16,7 +16,7 @@
   7. [Testing](#testing)
   8. [Concurrency](#concurrency)
   9. [Error Handling](#error-handling)
-  10. [Formatting](#formatting)
+  10. [서식(Formatting)](#서식formatting)
   11. [주석(Comments)](#주석comments)
   12. [번역(Translations)](#번역translations)
 
@@ -2471,31 +2471,34 @@ try {
 
 **[⬆ 상단으로](#목차)**
 
-## Formatting
+## 서식(Formatting)
 
-Formatting is subjective. Like many rules herein, there is no hard and fast rule that you must follow. The main point is *DO NOT ARGUE* over formatting. There are tons of tools to automate this. Use one! It's a waste of time and money for engineers to argue over formatting. The general rule to follow is *keep consistent formatting rules*.  
+서식은 주관적입니다. 여기에 있는 많은 규칙들과 같이 당신이 따르기 어려운 규칙은 없습니다. 중요한 점은 서식에 대해서 *논쟁하지 않는 것*입니다. 서식을 자동화하기 위한 도구들이 매우 많습니다. 그 중 하나를 사용하세요! 서식에 대해 논쟁하는 것은 엔지니어에게 시간과 돈 낭비일 뿐입니다. 따라야하는 일반적인 규칙은 *일관적인 서식 규칙을 지켜야하는 것입니다*.
 
-For TypeScript there is a powerful tool called [TSLint](https://palantir.github.io/tslint/). It's a static analysis tool that can help you improve dramatically the readability and maintainability of your code. There are ready to use TSLint configurations that you can reference in your projects:
+[TSLint](https://palantir.github.io/tslint/)라고 불리는 타입스크립트를 위한 강력한 도구가 있습니다. 이것은 코드의 가독성과 유지보수성을 극적으로 개선시키도록 도와주는 정적 분석 도구입니다.
+프로젝트에 참고할 수 있는 TSLint 설정을 사용할 준비가 되었습니다:
 
-- [TSLint Config Standard](https://www.npmjs.com/package/tslint-config-standard) - standard style rules
+- [TSLint Config Standard](https://www.npmjs.com/package/tslint-config-standard) - 표준 스타일 규칙
 
-- [TSLint Config Airbnb](https://www.npmjs.com/package/tslint-config-airbnb) - Airbnb style guide
+- [TSLint Config Airbnb](https://www.npmjs.com/package/tslint-config-airbnb) - 에어비엔비 스타일 가이드
 
-- [TSLint Clean Code](https://www.npmjs.com/package/tslint-clean-code) - TSLint rules inspired by the [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.amazon.ca/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)
+- [TSLint Clean Code](https://www.npmjs.com/package/tslint-clean-code) - [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.amazon.ca/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)에 영감 받은 TSLint 규칙
 
-- [TSLint react](https://www.npmjs.com/package/tslint-react) - lint rules related to React & JSX
+- [TSLint react](https://www.npmjs.com/package/tslint-react) - React & JSX와 관련된 lint 규칙
 
-- [TSLint + Prettier](https://www.npmjs.com/package/tslint-config-prettier) - lint rules for [Prettier](https://github.com/prettier/prettier) code formatter
+- [TSLint + Prettier](https://www.npmjs.com/package/tslint-config-prettier) - [Prettier](https://github.com/prettier/prettier) 코드 포맷터를 위한 lint 규칙
 
-- [ESLint rules for TSLint](https://www.npmjs.com/package/tslint-eslint-rules) - ESLint rules for TypeScript
+- [ESLint rules for TSLint](https://www.npmjs.com/package/tslint-eslint-rules) - 타입스크립트를 위한 ESLint 규칙
 
-- [Immutable](https://www.npmjs.com/package/tslint-immutable) - rules to disable mutation in TypeScript
+- [Immutable](https://www.npmjs.com/package/tslint-immutable) - 타입스크립트에서 변경을 허락하지 않는 규칙
 
-Refer also to this great [TypeScript StyleGuide and Coding Conventions](https://basarat.gitbook.io/typescript/styleguide) source.
+또한, 훌륭한 자료인 [타입스크립트 스타일 가이드와 코딩 컨벤션](https://basarat.gitbook.io/typescript/styleguide)을 참고해주세요.
 
-### Use consistent capitalization
+> 역자주: TSLint는 deprecated되었습니다. [Roadmap: TSLint -> ESLint](https://github.com/palantir/tslint/issues/4534) 이슈를 확인해주세요.
 
-Capitalization tells you a lot about your variables, functions, etc. These rules are subjective, so your team can choose whatever they want. The point is, no matter what you all choose, just *be consistent*.
+### 일관적으로 대소문자를 사용하세요
+
+대소문자를 구분하여 작성하는 것은 당신에게 변수, 함수 등에 대해서 많은 것을 알려줍니다. 이 규칙은 주관적이어서, 당신의 팀이 원하는 것을 선택해야 합니다. 중요한 점은 어떤 걸 선택하였든지 간에 *일관적*이어야 한다는 것입니다.
 
 **Bad:**
 
@@ -2669,11 +2672,11 @@ import { ConfigPlugin } from './plugins/config/configPlugin';
 
 **[⬆ 상단으로](#목차)**
 
-### Use typescript aliases
+### 타입스크립트 앨리어스를 사용하세요
 
-Create prettier imports by defining the paths and baseUrl properties in the compilerOptions section in the `tsconfig.json`
+`tsconfig.json`의 `compilerOptions` 섹션 안에서 `paths`와 `baseUrl` 속성을 정의해 더 보기 좋은 import 구문을 작성해주세요.
 
-This will avoid long relative paths when doing imports.
+이 방법은 import 구문을 사용할 때 긴 상대경로를 작성하는 것을 피하게 도와줄 것입니다.
 
 **Bad:**
 
