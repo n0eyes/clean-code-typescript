@@ -2784,10 +2784,10 @@ function combine(a: number, b: number): number {
 
 **[⬆ 상단으로](#목차)**
 
-### Avoid positional markers
+### 코드의 위치를 설명하는 주석을 사용하지 마세요
 
-They usually just add noise. Let the functions and variable names along with the proper indentation and formatting give the visual structure to your code.  
-Most IDE support code folding feature that allows you to collapse/expand blocks of code (see Visual Studio Code [folding regions](https://code.visualstudio.com/updates/v1_17#_folding-regions)).
+이건 보통 코드를 어지럽히기만 합니다. 함수와 변수 이름을 적절한 들여쓰기와 서식으로 당신의 코드에 시각적인 구조가 보이도록 하세요.  
+대부분의 IDE(통합 개발 환경)에서는 코드 블록을 `접기/펼치기` 할 수 있는 기능을 지원합니다. (Visual Studio Code의 [folding regions](https://code.visualstudio.com/updates/v1_17#_folding-regions)를 확인해보세요).
 
 **Bad:**
 
@@ -2846,13 +2846,11 @@ class Client {
 
 **[⬆ 상단으로](#목차)**
 
-### TODO comments
+### TODO 주석
 
-When you find yourself that you need to leave notes in the code for some later improvements,
-do that using `// TODO` comments. Most IDE have special support for those kind of comments so that
-you can quickly go over the entire list of todos.  
+추후에 개선을 위해 코드에 메모를 남겨야할 때, `// TODO` 주석을 사용하세요. 대부분의 IDE는 이런 종류의 주석을 특별하게 지원하기 때문에 해야할 일 목록을 빠르게 검토할 수 있습니다.
 
-Keep in mind however that a *TODO* comment is not an excuse for bad code. 
+하지만 *TODO* 주석이 나쁜 코드에 대한 변명은 아니라는 것을 명심하세요.
 
 **Bad:**
 
