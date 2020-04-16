@@ -33,7 +33,7 @@ Robert C. Martin의 책인 [*클린 코드*](http://www.yes24.com/Product/Goods/
 
 한 가지 더 덧붙이자면, 이 규칙들을 알게 된다 해서 당장 더 나은 개발자가 되는 것은 아니며 코드를 작성할 때 실수를 하지 않게 해주는 것은 아닙니다. 훌륭한 도자기들이 처음엔 말랑한 점토부터 시작하듯이 모든 코드를 처음부터 완벽할 수 없습니다. 하지만 당신은 팀원들과 같이 코드를 리뷰하며 점점 완벽하게 만들어 나가야 합니다. 당신이 처음 작성한 코드를 고칠 때 절대로 자신을 질타하지 마세요. 대신 코드를 부수고 더 나은 코드를 만드세요!
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ## 변수(Variables)
 
@@ -58,7 +58,7 @@ function between<T>(value: T, left: T, right: T): boolean {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 발음할 수 있는 변수 이름을 사용하세요
 
@@ -84,7 +84,7 @@ type Customer = {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 동일한 유형의 변수는 동일한 단어를 사용하세요
 
@@ -102,7 +102,7 @@ function getUserData(): User;
 function getUser(): User;
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 검색할 수 있는 이름을 사용하세요
 
@@ -124,7 +124,7 @@ const MILLISECONDS_IN_A_DAY = 24 * 60 * 60 * 1000;
 setTimeout(restart, MILLISECONDS_IN_A_DAY);
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 의도를 나타내는 변수를 사용하세요
 
@@ -148,7 +148,7 @@ for (const [id, user] of users) {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 암시하는 이름은 사용하지 마세요
 
@@ -171,7 +171,7 @@ const subscription = getSubscription();
 const transaction = charge(user, subscription);
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 불필요한 문맥은 추가하지 마세요
 
@@ -205,7 +205,7 @@ function print(car: Car): void {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### short circuiting이나 조건문 대신 기본 매개변수를 사용하세요
 
@@ -228,7 +228,7 @@ function loadPages(count: number = 10) {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 의도를 알려주기 위해 `enum`을 사용하세요
 
@@ -280,7 +280,7 @@ class Projector {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ## 함수(Functions)
 
@@ -349,7 +349,7 @@ createMenu({
 });
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 함수는 한가지만 해야합니다
 
@@ -382,7 +382,7 @@ function isActiveClient(client: Client) {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 함수가 무엇을 하는지 알 수 있도록 함수 이름을 지으세요
 
@@ -410,7 +410,7 @@ const date = new Date();
 addMonthToDate(date, 1);
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 함수는 단일 행동을 추상화해야 합니다
 
@@ -478,7 +478,7 @@ function parse(tokens: Token[]): SyntaxTree {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 중복된 코드를 제거해주세요
 
@@ -569,7 +569,7 @@ function showEmployeeList(employee: Developer | Manager) {
 
 당신은 중복된 코드에 대해서 비판적으로 생각해야 합니다. 가끔은 중복된 코드와 불필요한 추상화로 인한 복잡성 간의 맞바꿈이 있을 수 있습니다. 서로 다른 두 개의 모듈의 구현이 유사해보이지만 서로 다른 도메인에 존재하는 경우, 코드 중복은 공통된 코드에서 추출해서 중복을 줄이는 것보다 나은 선택일 수 있습니다. 이 경우에 추출된 공통의 코드는 두 모듈 사이에서 간접적인 의존성이 나타나게 됩니다.
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### `Object.assign` 혹은 구조 분해를 사용해서 기본 객체를 만드세요
 
@@ -623,7 +623,7 @@ createMenu({ body: 'Bar' });
 
 사이드 이펙트와 `undefined` 혹은 `null` 값을 명시적으로 넘기는 예상치못한 행동을 피하기 위해서 타입스크립트 컴파일러에게 그것을 허락하지않도록 설정할 수 있습니다. 타입스크립트에서 [`--strictNullChecks`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#--strictnullchecks) 옵션을 확인하세요.
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 함수 매개변수로 플래그를 사용하지 마세요
 
@@ -654,7 +654,7 @@ function createFile(name: string) {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 사이드 이펙트를 피하세요 (파트 1)
 
@@ -695,7 +695,7 @@ const encodedName = toBase64(name);
 console.log(name);
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 사이드 이펙트를 피하세요 (파트 2)
 
@@ -727,7 +727,7 @@ function addItemToCart(cart: CartItem[], item: Item): CartItem[] {
 };
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 전역 함수를 작성하지 마세요
 
@@ -761,7 +761,7 @@ class MyArray<T> extends Array<T> {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 명령형 프로그래밍보다 함수형 프로그래밍을 지향하세요
 
@@ -816,7 +816,7 @@ const totalOutput = contributions
   .reduce((totalLines, output) => totalLines + output.linesOfCode, 0);
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 조건문을 캡슐화하세요
 
@@ -840,7 +840,7 @@ if (canActivateService(subscription, account)) {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 부정 조건문을 피하세요
 
@@ -868,7 +868,7 @@ if (!isEmailUsed(node)) {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 조건문을 피하세요
 
@@ -933,7 +933,7 @@ class Cessna extends Airplane {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 타입 체킹을 피하세요
 
@@ -963,7 +963,7 @@ function travelToTexas(vehicle: Vehicle) {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 필요 이상으로 최적화하지 마세요
 
@@ -987,7 +987,7 @@ for (let i = 0; i < list.length; i++) {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 필요하지 않는 코드는 제거하세요
 
@@ -1020,7 +1020,7 @@ const req = requestModule;
 inventoryTracker('apples', req, 'www.inventory-awesome.io');
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 이터레이터와 제너레이터를 사용하세요
 
@@ -1103,7 +1103,7 @@ itiriri(fibonacci())
   .forEach(fib => console.log(fib));
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ## Objects and Data Structures
 
@@ -1169,7 +1169,7 @@ const account = new BankAccount();
 account.balance = 100;
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### Make objects have private/protected members
 
@@ -1212,7 +1212,7 @@ class Circle {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### Prefer immutability
 
@@ -1310,7 +1310,7 @@ const result = readonlyData(100);
 result.value = 200; // error
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### type vs. interface
 
@@ -1368,7 +1368,7 @@ class Square implements Shape {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ## Classes
 
@@ -1412,7 +1412,7 @@ class Dashboard {
 // ...
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### High cohesion and low coupling
 
@@ -1492,7 +1492,7 @@ class UserNotifier {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### Prefer composition over inheritance
 
@@ -1561,7 +1561,7 @@ class EmployeeTaxData {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### Use method chaining
 
@@ -1643,7 +1643,7 @@ const query = new QueryBuilder()
   .build();
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ## SOLID
 
@@ -1698,7 +1698,7 @@ class UserSettings {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### Open/Closed Principle (OCP)
 
@@ -1791,7 +1791,7 @@ class HttpRequester {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### Liskov Substitution Principle (LSP)
 
@@ -1908,7 +1908,7 @@ const shapes = [new Rectangle(4, 5), new Rectangle(4, 5), new Square(5)];
 renderLargeShapes(shapes);
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### Interface Segregation Principle (ISP)
 
@@ -1989,7 +1989,7 @@ class EconomicPrinter implements Printer {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### Dependency Inversion Principle (DIP)
 
@@ -2086,7 +2086,7 @@ const reader = new ReportReader(new JsonFormatter());
 await report = await reader.read('report.json');
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ## Testing
 
@@ -2104,7 +2104,7 @@ There's no excuse to not write tests. There are [plenty of good JS test framewor
 
 3. You are not allowed to write any more production code than is sufficient to pass the one failing unit test.
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### F.I.R.S.T. rules
 
@@ -2120,7 +2120,7 @@ Clean tests should follow the rules:
 
 - **Timely** unit tests should be written before the production code. If you write tests after the production code, you might find writing tests too hard.
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### Single concept per test
 
@@ -2170,7 +2170,7 @@ describe('AwesomeDate', () => {
 });
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### The name of the test should reveal its intention
 
@@ -2204,7 +2204,7 @@ describe('Calendar', () => {
 });
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ## Concurrency
 
@@ -2275,7 +2275,7 @@ Promises supports a few helper methods that help make code more conscise:
 
 `Promise.all` is especially useful when there is a need to run tasks in parallel. `Promise.race` makes it easier to implement things like timeouts for promises.
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### Async/Await are even cleaner than Promises
 
@@ -2323,7 +2323,7 @@ try {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ## Error Handling
 
@@ -2390,7 +2390,7 @@ function calculateTotal(items: Item[]): Failable<number, 'empty'> {
 
 For the detailed explanation of this idea refer to the [original post](https://medium.com/@dhruvrajvanshi/making-exceptions-type-safe-in-typescript-c4d200ee78e9).
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### Don't ignore caught errors
 
@@ -2426,7 +2426,7 @@ try {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### Don't ignore rejected promises
 
@@ -2467,7 +2467,7 @@ try {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ## 서식(Formatting)
 
@@ -2533,7 +2533,7 @@ type Container = { /* ... */ }
 클래스, 인터페이스, 타입 그리고 네임스페이스 이름에는 `PascalCase`를 사용하세요.  
 변수, 함수 그리고 클래스 멤버 이름에는 `camelCase`를 사용하세요.
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 함수 호출자와 피호출자를 가깝게 위치시키세요
 
@@ -2622,7 +2622,7 @@ const review = new PerformanceReview(employee);
 review.review();
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### import 구문을 특정 순서대로 정리하세요
 
@@ -2668,7 +2668,7 @@ import { ApiCredentials, Adapters } from './common/api/authorization';
 import { ConfigPlugin } from './plugins/config/configPlugin';
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 타입스크립트 앨리어스를 사용하세요
 
@@ -2702,7 +2702,7 @@ import { UserService } from '@services/UserService';
 ...
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ## 주석(Comments)
 
@@ -2729,7 +2729,7 @@ const isSubscriptionActive = subscription.endDate > Date.now;
 if (isSubscriptionActive) { /* ... */ }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 당신의 코드를 주석 처리하지 마세요
 
@@ -2755,7 +2755,7 @@ type User = {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 일기 같은 주석을 달지 마세요
 
@@ -2783,7 +2783,7 @@ function combine(a: number, b: number): number {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### 코드의 위치를 설명하는 주석을 사용하지 마세요
 
@@ -2845,7 +2845,7 @@ class Client {
 };
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ### TODO 주석
 
@@ -2871,7 +2871,7 @@ function getActiveSubscriptions(): Promise<Subscription[]> {
 }
 ```
 
-**[⬆ 상단으로](#목차)**
+**[⬆ 맨 위로 이동](#목차)**
 
 ## 번역(Translations)
 
