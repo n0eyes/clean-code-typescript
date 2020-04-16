@@ -2530,15 +2530,15 @@ type Animal = { /* ... */ }
 type Container = { /* ... */ }
 ```
 
-Prefer using `PascalCase` for class, interface, type and namespace names.  
-Prefer using `camelCase` for variables, functions and class members.
+클래스, 인터페이스, 타입 그리고 네임스페이스 이름에는 `PascalCase`를 사용하세요.  
+변수, 함수 그리고 클래스 멤버 이름에는 `camelCase`를 사용하세요.
 
 **[⬆ 상단으로](#목차)**
 
-### Function callers and callees should be close
+### 함수 호출자와 피호출자를 가깝게 위치시키세요
 
-If a function calls another, keep those functions vertically close in the source file. Ideally, keep the caller right above the callee.
-We tend to read code from top-to-bottom, like a newspaper. Because of this, make your code read that way.
+함수가 다른 함수를 호출할 때, 코드에서 이 함수들을 수직적으로 가깝게 유지하도록 하세요. 이상적으로는, 호출하는 함수를 호출을 당하는 함수 바로 위에 위치시키는게 좋습니다.
+우리는 신문처럼 코드를 위에서 아래로 읽는 경향이 있기 때문에, 코드를 작성할 때에도 이런 방식으로 읽는 것을 고려해야 합니다.
 
 **Bad:**
 
@@ -2624,22 +2624,22 @@ review.review();
 
 **[⬆ 상단으로](#목차)**
 
-### Organize imports
+### import 구문을 특정 순서대로 정리하세요
 
-With clean and easy to read import statements you can quickly see the dependencies of current code. Make sure you apply following good practices for `import` statements:
+`import` 구문을 읽기 쉽고 명료하게 하면 당신은 현재 코드의 의존성을 빠르게 확인할 수 있습니다. 다음과 같은 `import` 구문 정리를 위한 좋은 방법들을 적용해보세요:
 
-- Import statements should be alphabetized and grouped.
-- Unused imports should be removed.
-- Named imports must be alphabetized (i.e. `import {A, B, C} from 'foo';`)
-- Import sources must be alphabetized within groups, i.e.: `import * as foo from 'a'; import * as bar from 'b';`
-- Groups of imports are delineated by blank lines.
-- Groups must respect following order:
-  - Polyfills (i.e. `import 'reflect-metadata';`)
-  - Node builtin modules (i.e. `import fs from 'fs';`)
-  - external modules (i.e. `import { query } from 'itiriri';`)
-  - internal modules (i.e `import { UserService } from 'src/services/userService';`)
-  - modules from a parent directory (i.e. `import foo from '../foo'; import qux from '../../foo/qux';`)
-  - modules from the same or a sibling's directory (i.e. `import bar from './bar'; import baz from './bar/baz';`)
+- import 구문은 알파벳 순서대로 배열하고 그룹화해야 합니다.
+- 사용하지 않은 import 구문은 제거되어야 합니다.
+- 이름이 있는 import 구문은 알파벳 순서대로 배열해야 합니다. (예: `import {A, B, C} from 'foo';`)
+- import 하는 소스코드는 그룹 내에서 알파벳 순서대로 배열해야 합니다. (예: `import * as foo from 'a'; import * as bar from 'b';`)
+- import 구문의 그룹은 빈 줄로 구분되어야 합니다.
+- 그룹은 다음 순서를 준수해야 합니다:
+  - 폴리필 (예: `import 'reflect-metadata';`)
+  - Node 내장 모듈 (예: `import fs from 'fs';`)
+  - 외부 모듈 (예: `import { query } from 'itiriri';`)
+  - 내부 모듈 (예: `import { UserService } from 'src/services/userService';`)
+  - 상위 디렉토리에서 불러오는 모듈 (예: `import foo from '../foo'; import qux from '../../foo/qux';`)
+  - 동일한 계층의 디렉토리에서 불러오는 모듈 (예: `import bar from './bar'; import baz from './bar/baz';`)
 
 **Bad:**
 
