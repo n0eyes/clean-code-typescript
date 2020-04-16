@@ -7,20 +7,20 @@
 
 ## 목차
 
-  1. [소개(Introduction)](#소개introduction)
-  2. [변수(Variables)](#변수variables)
-  3. [함수(Functions)](#함수functions)
-  4. [Objects and Data Structures](#objects-and-data-structures)
-  5. [Classes](#classes)
+  1. [소개](#소개)
+  2. [변수](#변수)
+  3. [함수](#함수)
+  4. [객체와 자료구조](#객체와-자료구조)
+  5. [클래스](#클래스)
   6. [SOLID](#solid)
-  7. [Testing](#testing)
-  8. [Concurrency](#concurrency)
-  9. [Error Handling](#error-handling)
-  10. [서식(Formatting)](#서식formatting)
-  11. [주석(Comments)](#주석comments)
-  12. [번역(Translations)](#번역translations)
+  7. [테스트](#테스트)
+  8. [동시성](#동시성)
+  9. [에러 처리](#에러-처리)
+  10. [서식](#서식)
+  11. [주석](#주석)
+  12. [번역](#번역)
 
-## 소개(Introduction)
+## 소개
 
 ![Humorous image of software quality estimation as a count of how many expletives
 you shout when reading code](https://www.osnews.com/images/comics/wtfm.jpg)
@@ -35,7 +35,7 @@ Robert C. Martin의 책인 [*클린 코드*](http://www.yes24.com/Product/Goods/
 
 **[⬆ 맨 위로 이동](#목차)**
 
-## 변수(Variables)
+## 변수
 
 ### 의미있는 변수 이름을 사용하세요
 
@@ -282,7 +282,7 @@ class Projector {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-## 함수(Functions)
+## 함수
 
 ### 함수의 매개변수는 2개 혹은 그 이하가 이상적입니다
 
@@ -2088,7 +2088,7 @@ await report = await reader.read('report.json');
 
 **[⬆ 맨 위로 이동](#목차)**
 
-## Testing
+## 테스트
 
 Testing is more important than shipping. If you have no tests or an inadequate amount, then every time you ship code you won't be sure that you didn't break anything.
 Deciding on what constitutes an adequate amount is up to your team, but having 100% coverage (all statements and branches)
@@ -2206,7 +2206,7 @@ describe('Calendar', () => {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-## Concurrency
+## 동시성
 
 ### Prefer promises vs callbacks
 
@@ -2325,7 +2325,7 @@ try {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-## Error Handling
+## 에러 처리
 
 Thrown errors are a good thing! They mean the runtime has successfully identified when something in your program has gone wrong and it's letting you know by stopping function
 execution on the current stack, killing the process (in Node), and notifying you in the console with a stack trace.
@@ -2469,7 +2469,7 @@ try {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-## 서식(Formatting)
+## 서식
 
 서식은 주관적입니다. 여기에 있는 많은 규칙들과 같이 당신이 따르기 어려운 규칙은 없습니다. 중요한 점은 서식에 대해서 *논쟁하지 않는 것*입니다. 서식을 자동화하기 위한 도구들이 매우 많습니다. 그 중 하나를 사용하세요! 서식에 대해 논쟁하는 것은 엔지니어에게 시간과 돈 낭비일 뿐입니다. 따라야하는 일반적인 규칙은 *일관적인 서식 규칙을 지켜야하는 것입니다*.
 
@@ -2704,7 +2704,7 @@ import { UserService } from '@services/UserService';
 
 **[⬆ 맨 위로 이동](#목차)**
 
-## 주석(Comments)
+## 주석
 
 주석을 사용하는 것은 주석 없이 코드를 작성하는 것이 실패했다는 표시입니다. 코드는 단일 진실 공급원(Single source of truth)이어야 합니다.
 
@@ -2873,7 +2873,7 @@ function getActiveSubscriptions(): Promise<Subscription[]> {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-## 번역(Translations)
+## 번역
 
 이 글을 다른 언어로도 읽을 수 있습니다:  
 - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [vitorfreitas/clean-code-typescript](https://github.com/vitorfreitas/clean-code-typescript)
@@ -2888,5 +2888,7 @@ function getActiveSubscriptions(): Promise<Subscription[]> {
 번역이 완료되면 참고문헌에 추가됩니다.
 자세한 내용과 진행상황을 보고싶다면 이 [논의](https://github.com/labs42io/clean-code-typescript/issues/15)를 확인하세요.
 당신은 당신의 언어에 이 글을 번역함으로써 *클린 코드* 커뮤니티에 중요한 기여를 할 수 있습니다.
+
+**[⬆ 맨 위로 이동](#목차)**
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2F738%2Fclean-code-typescript)](https://hits.seeyoufarm.com)
