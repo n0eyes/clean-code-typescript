@@ -2888,3 +2888,5 @@ function getActiveSubscriptions(): Promise<Subscription[]> {
 번역이 완료되면 참고문헌에 추가됩니다.
 자세한 내용과 진행상황을 보고싶다면 이 [논의](https://github.com/labs42io/clean-code-typescript/issues/15)를 확인하세요.
 당신은 당신의 언어에 이 글을 번역함으로써 *클린 코드* 커뮤니티에 중요한 기여를 할 수 있습니다.
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2F738%2Fclean-code-typescript)](https://hits.seeyoufarm.com)
