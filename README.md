@@ -2208,11 +2208,11 @@ describe('Calendar', () => {
 
 ## 동시성
 
-### Prefer promises vs callbacks
+### 프로미스 vs 콜백
 
-Callbacks aren't clean, and they cause excessive amounts of nesting *(the callback hell)*.  
-There are utilities that transform existing functions using the callback style to a version that returns promises
-(for Node.js see [`util.promisify`](https://nodejs.org/dist/latest-v8.x/docs/api/util.html#util_util_promisify_original), for general purpose see [pify](https://www.npmjs.com/package/pify), [es6-promisify](https://www.npmjs.com/package/es6-promisify))
+콜백은 명료하지 않고, 지나친 양의 중첩된 *콜백 지옥*을 유발할 수 있습니다.  
+콜백 방식을 사용하고 있는 기존의 함수를 프로미스를 반환하는 함수로 변환시켜주는 유틸리티 라이브러리가 있습니다.
+(Node.js를 사용한다면 [`util.promisify`](https://nodejs.org/dist/latest-v8.x/docs/api/util.html#util_util_promisify_original)를 확인해주세요. 일반적인 목적이라면 [pify](https://www.npmjs.com/package/pify), [es6-promisify](https://www.npmjs.com/package/es6-promisify)를 확인해주세요.)
 
 **Bad:**
 
@@ -2264,22 +2264,24 @@ downloadPage('https://en.wikipedia.org/wiki/Robert_Cecil_Martin', 'article.html'
   .catch(error => console.error(error));  
 ```
 
-Promises supports a few helper methods that help make code more conscise:  
+프로미스는 코드를 더욱 간결하게 해주는 몇몇의 헬퍼 메소드를 지원합니다:  
 
-| Pattern                  | Description                                |  
+| 패턴                      | 설명                                        |  
 | ------------------------ | -----------------------------------------  |  
-| `Promise.resolve(value)` | Convert a value into a resolved promise.   |  
-| `Promise.reject(error)`  | Convert an error into a rejected promise.  |  
-| `Promise.all(promises)`  |Returns a new promise which is fulfilled with an array of fulfillment values for the passed promises or rejects with the reason of the first promise that rejects. |
-| `Promise.race(promises)`|Returns a new promise which is fulfilled/rejected with the result/error of the first settled promise from the array of passed promises. |
+| `Promise.resolve(value)` | 해결(resolve)된 프로미스로 값을 변환함.            |  
+| `Promise.reject(error)`  | 거부(reject)된 프로미스로 에러를 변환함.            |  
+| `Promise.all(promises)`  | 전달된 모든 프로미스가 이행한 값의 배열을 이행하는 새 프로미스 객체를 반환하거나 거부된 첫번째 프로미스의 이유로 거부함. |
+| `Promise.race(promises)`| 전달된 프로미스의 배열에서 가장 먼저 완료된 결과/에러로 이행/거부된 새 프로미스 객체를 반환함. |
 
-`Promise.all` is especially useful when there is a need to run tasks in parallel. `Promise.race` makes it easier to implement things like timeouts for promises.
+`Promise.all`는 병렬적으로 작업을 수행할 필요가 있을 때 유용합니다. `Promise.race`는 프로미스를 위한 타임아웃과 같은 것을 구현하는 것을 쉽게 할 수 있도록 도와줍니다.
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Async/Await are even cleaner than Promises
+### 프로미스보다 `async`/`await`가 더 명료합니다
 
 With `async`/`await` syntax you can write code that is far cleaner and more understandable than chained promises. Within a function prefixed with `async` keyword you have a way to tell the JavaScript runtime to pause the execution of code on the `await` keyword (when used on a promise).
+
+`async`/`await` 구문을 사용하면 연결된 프로미스 구문보다 훨씬 더 명료하고 이해하기 쉬운 코드를 작성할 수 있습니다. `async` 키워드가 앞에 붙여진 함수는  `await` 키워드에서 코드의 실행을 멈춘다는 것을 자바스크립트 런타임에게 알려줍니다.
 
 **Bad:**
 
