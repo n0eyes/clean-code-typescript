@@ -2327,16 +2327,14 @@ try {
 
 ## 에러 처리
 
-Thrown errors are a good thing! They mean the runtime has successfully identified when something in your program has gone wrong and it's letting you know by stopping function
-execution on the current stack, killing the process (in Node), and notifying you in the console with a stack trace.
+에러를 던지는 것은 좋은 것입니다! 에러를 던진다는 것은 런타임이 당신의 프로그램에서 뭔가 잘못되었을 때 식별하고 현재 스택에서 함수 실행을 멈추고, (노드에서) 프로세스를 종료하며, 스택 트레이스를 콘솔에 보여줌으로써 당신에게 해당 에러를 알려주는 것을 의미합니다.
 
-### Always use Error for throwing or rejecting
+### `throw` 또는 `reject` 구문에서 항상 `Error` 타입을 사용하세요
 
-JavaScript as well as TypeScript allow you to `throw` any object. A Promise can also be rejected with any reason object.  
-It is advisable to use the `throw` syntax with an `Error` type. This is because your error might be caught in higher level code with a `catch` syntax.
-It would be very confusing to catch a string message there and would make
-[debugging more painful](https://basarat.gitbook.io/typescript/type-system/exceptions#always-use-error).  
-For the same reason you should reject promises with `Error` types.
+타입스크립트뿐만 아니라 자바스크립트는 어떤 객체든지 에러를 `throw` 하는 것을 허용합니다. 또한, 프로미스는 어떤 객체라도 거부될 수 있습니다.  
+`Error` 타입에는 `throw` 구문을 사용하는 것이 바람직합니다. 당신의 에러가 상위 코드의 `catch` 구문에서 잡힐 수 있기 때문입니다.
+문자열 메시지가 잡히는 것은 매우 혼란스러우며 이는 [디버깅을 더 고통스럽게](https://basarat.gitbook.io/typescript/type-system/exceptions#always-use-error) 만듭니다.  
+이와 같은 이유로 당신은 `Error` 타입으로 프로미스를 거부해야합니다.
 
 **Bad:**
 
@@ -2361,17 +2359,17 @@ function get(): Promise<Item[]> {
   return Promise.reject(new Error('Not implemented.'));
 }
 
-// or equivalent to:
+// 또는 아래와 동일합니다:
 
 async function get(): Promise<Item[]> {
   throw new Error('Not implemented.');
 }
 ```
 
-The benefit of using `Error` types is that it is supported by the syntax `try/catch/finally` and implicitly all errors have the `stack` property which
-is very powerful for debugging.  
-There are also another alternatives, not to use the `throw` syntax and instead always return custom error objects. TypeScript makes this even easier.
-Consider following example:
+`Error` 타입을 사용하는 장점은 `try/catch/finally` 구문에 의해 지원되고 암시적으로 모든 에러가 디버깅에 매우 강력한 `stack` 속성을 가지고 있기 떄문입니다.  
+또 하나의 대안은 있습니다. `throw` 구문을 사용하지 않는 대신, 항상 사용자 정의 객체를 반환하는 것입니다.  
+타입스크립트는 이것을 훨씬 더 쉽게 만듭니다.
+아래의 예제를 확인하세요:
 
 ```ts
 type Result<R> = { isError: false, value: R };
@@ -2388,13 +2386,13 @@ function calculateTotal(items: Item[]): Failable<number, 'empty'> {
 }
 ```
 
-For the detailed explanation of this idea refer to the [original post](https://medium.com/@dhruvrajvanshi/making-exceptions-type-safe-in-typescript-c4d200ee78e9).
+이 아이디어의 자세한 설명은 [원문](https://medium.com/@dhruvrajvanshi/making-exceptions-type-safe-in-typescript-c4d200ee78e9)을 참고하세요.
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Don't ignore caught errors
+### 잡힌 에러를 무시하지 마세요
 
-Doing nothing with a caught error doesn't give you the ability to ever fix or react to said error. Logging the error to the console (`console.log`) isn't much better as often times it can get lost in a sea of things printed to the console. If you wrap any bit of code in a `try/catch` it means you think an error may occur there and therefore you should have a plan, or create a code path, for when it occurs.
+잡힌 에러를 바라보는 것만으로는 해당 에러를 고치거나 대응할 수 없습니다. 콘솔에 에러를 기록하는 것(`console.log`)은 콘솔에 출력된 많은 것들 사이에서 발견되지 못할 수 있기 때문에 그다지 좋은 선택은 아닙니다. 당신이 어떤 코드를 `try/catch`로 감쌌다면, 그 코드에서 에러가 일어날 수 있으며, 즉 에러가 발생했을 때에 대한 계획이나 장치가 있어야 한다는 것을 의미합니다.
 
 **Bad:**
 
@@ -2405,12 +2403,12 @@ try {
   console.log(error);
 }
 
-// or even worse
+// 아래 예제는 훨씬 나쁩니다.
 
 try {
   functionThatMightThrow();
 } catch (error) {
-  // ignore error
+  // 에러를 무시
 }
 ```
 
@@ -2428,9 +2426,9 @@ try {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Don't ignore rejected promises
+### 거부된 프로미스를 무시하지 마세요
 
-For the same reason you shouldn't ignore caught errors from `try/catch`.
+위와 같은 이유로 `try/catch`로부터 잡힌 에러를 무시하면 안됩니다.
 
 **Bad:**
 
@@ -2457,7 +2455,7 @@ getUser()
     logger.log(error);
   });
 
-// or using the async/await syntax:
+// 또는 async/await 구문을 사용할 수 있습니다:
 
 try {
   const user = await getUser();
