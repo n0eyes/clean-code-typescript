@@ -2090,41 +2090,40 @@ await report = await reader.read('report.json');
 
 ## 테스트
 
-Testing is more important than shipping. If you have no tests or an inadequate amount, then every time you ship code you won't be sure that you didn't break anything.
-Deciding on what constitutes an adequate amount is up to your team, but having 100% coverage (all statements and branches)
-is how you achieve very high confidence and developer peace of mind. This means that in addition to having a great testing framework, you also need to use a good [coverage tool](https://github.com/gotwarlost/istanbul).
+테스트는 배포보다 중요합니다. 테스트가 없거나 부족한 경우, 코드를 배포할 때마다 당신은 어떤 것이 작동하지 않을지 확실하지 않을 것입니다.
+적절한 양의 테스트를 구성하는 것은 당신의 팀에게 달려있지만, (모든 문장과 브랜치에서) 100%의 커버리지를 가진다면 매우 높은 자신감과 마음의 평화를 얻을 것입니다. 이는 훌륭한 테스트 프레임워크뿐만 아니라, 좋은 [커버리지 도구](https://github.com/gotwarlost/istanbul)를 사용해야 한다는 것을 의미합니다.
 
-There's no excuse to not write tests. There are [plenty of good JS test frameworks](http://jstherightway.org/#testing-tools) with typings support for TypeScript, so find one that your team prefers. When you find one that works for your team, then aim to always write tests for every new feature/module you introduce. If your preferred method is Test Driven Development (TDD), that is great, but the main point is to just make sure you are reaching your coverage goals before launching any feature, or refactoring an existing one.  
+테스트를 작성하지 않을 변명은 없습니다. 타입스크립트의 타입을 지원하는 [많은 양의 좋은 자바스크립트 테스트 프레임워크](http://jstherightway.org/#testing-tools)가 있으므로 당신의 팀이 선호하는 것을 찾아 사용하세요. 당신의 팀에 적합한 테스트 프레임워크를 찾았다면, 당신이 만드는 모든 새로운 기능/모듈을 위한 테스트를 항상 작성하는 것을 목표로 하세요. 테스트 기반 개발(TDD)이 당신이 선호하는 방법이라면, 매우 좋습니다. 하지만 중요한 건 어떤 기능을 만들거나 기존의 것을 리팩토링하기 전에 목표하는 커버리지를 달성하는 것입니다.
 
-### The three laws of TDD
+### TDD의 세 가지 법칙
 
-1. You are not allowed to write any production code unless it is to make a failing unit test pass.
+1. 실패하는 단위 테스트를 작성하기 전에는 실제 코드를 작성하지 마세요.
 
-2. You are not allowed to write any more of a unit test than is sufficient to fail; and compilation failures are failures.
+2. 컴파일은 실패하지 않으면서 실행이 실패하는 정도로만 단위 테스트를 작성하세요.
 
-3. You are not allowed to write any more production code than is sufficient to pass the one failing unit test.
-
-**[⬆ 맨 위로 이동](#목차)**
-
-### F.I.R.S.T. rules
-
-Clean tests should follow the rules:
-
-- **Fast** tests should be fast because we want to run them frequently.
-
-- **Independent** tests should not depend on each other. They should provide same output whether run independently or all together in any order.
-
-- **Repeatable** tests should be repeatable in any environment and there should be no excuse for why they fail.
-
-- **Self-Validating** a test should answer with either *Passed* or *Failed*. You don't need to compare log files to answer if a test passed.
-
-- **Timely** unit tests should be written before the production code. If you write tests after the production code, you might find writing tests too hard.
+3. 실패하는 단위 테스트를 통과할 정도로만 실제 코드를 작성하세요.
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Single concept per test
+### F.I.R.S.T 규칙
 
-Tests should also follow the *Single Responsibility Principle*. Make only one assert per unit test.
+명료한 테스트는 다음 규칙을 따라야 합니다:
+
+- **Fast** 테스트는 빈번하게 실행되므로 빨라야 합니다.
+
+- **Independent** 테스트는 서로 종속적이지 않습니다. 독립적으로 실행하든지 순서 상관없이 모두 실행하든지 동일한 결과가 나와야 합니다.
+
+- **Repeatable** 테스트는 어떤 환경에서든 반복될 수 있습니다. 테스트가 실패하는데에 변명이 없어야 합니다.
+
+- **Self-Validating** 테스트는 *통과* 혹은 *실패*로 답해야 합니다. 테스트가 통과되었다면 로그 파일을 보며 비교할 필요는 없습니다.
+
+- **Timely** 단위 테스트는 실제 코드를 작성하기 전에 작성해야 합니다. 실제 코드를 작성한 후에 테스트를 작성한다면, 테스트를 작성하는 것이 너무 고단하게 느껴질 것입니다.
+
+**[⬆ 맨 위로 이동](#목차)**
+
+### 테스트 하나에 하나의 개념을 작성하세요
+
+또한, 테스트는 *단일 책임 원칙*을 따라야 합니다. 단위 테스트 하나당 하나의 assert 구문을 작성하세요.
 
 **Bad:**
 
@@ -2172,9 +2171,9 @@ describe('AwesomeDate', () => {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### The name of the test should reveal its intention
+### 테스트의 이름은 테스트의 의도가 드러나야 합니다
 
-When a test fail, its name is the first indication of what may have gone wrong.
+테스트가 실패할 때, 테스트의 이름은 어떤 것이 잘못되었는지 볼 수 있는 첫 번째 표시입니다.
 
 **Bad:**
 
@@ -2270,7 +2269,7 @@ downloadPage('https://en.wikipedia.org/wiki/Robert_Cecil_Martin', 'article.html'
 | ------------------------ | -----------------------------------------  |  
 | `Promise.resolve(value)` | 해결(resolve)된 프로미스로 값을 변환함.            |  
 | `Promise.reject(error)`  | 거부(reject)된 프로미스로 에러를 변환함.            |  
-| `Promise.all(promises)`  | 전달된 모든 프로미스가 이행한 값의 배열을 이행하는 새 프로미스 객체를 반환하거나 거부된 첫번째 프로미스의 이유로 거부함. |
+| `Promise.all(promises)`  | 전달된 모든 프로미스가 이행한 값의 배열을 이행하는 새 프로미스 객체를 반환하거나 거부된 첫 번째 프로미스의 이유로 거부함. |
 | `Promise.race(promises)`| 전달된 프로미스의 배열에서 가장 먼저 완료된 결과/에러로 이행/거부된 새 프로미스 객체를 반환함. |
 
 `Promise.all`는 병렬적으로 작업을 수행할 필요가 있을 때 유용합니다. `Promise.race`는 프로미스를 위한 타임아웃과 같은 것을 구현하는 것을 쉽게 할 수 있도록 도와줍니다.
