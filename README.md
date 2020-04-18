@@ -662,14 +662,14 @@ function createFile(name: string) {
 
 당신은 가끔 프로그램에서 사이드 이펙트를 가질 필요가 있습니다. 이전의 사례에서와 같이 당신은 파일을 써야할 때가 있습니다.
 당신이 하고 싶은 것은 이것을 하는 곳을 중앙화하는 것입니다. 특정 파일을 쓰기 위해 몇 개의 함수와 클래스를 만들지 마세요.
-그것을 행하는 서비스를 하나만 만드세요. 오직 하나입니다.
+그것을 행하는 서비스를 단 하나만 만드세요.
 
-The main point is to avoid common pitfalls like sharing state between objects without any structure, using mutable data types that can be written to by anything, and not centralizing where your side effects occur. If you can do this, you will be happier than the vast majority of other programmers.
+중요한 것은 어떠한 구조도 없이 객체 사이에 상태를 공유하거나 어떤 것에 의해서든지 변경될 수 있는 데이터 타입을 사용하거나 사이드 이펙트가 일어나는 곳을 중앙화 하지 않는 것과 같은 위험 요소를 피하는 것입니다. 만약 그렇게 할 수 있다면, 당신은 대부분의 다른 프로그래머들보다 더욱 행복할 것입니다.
 
 **Bad:**
 
 ```ts
-// Global variable referenced by following function.
+// 아래의 함수에서 참조하는 전역 변수입니다.
 let name = 'Robert C. Martin';
 
 function toBase64() {
@@ -677,9 +677,9 @@ function toBase64() {
 }
 
 toBase64();
-// If we had another function that used this name, now it'd be a Base64 value
+// 이 이름을 사용하는 다른 함수가 있다면, 그것은 Base64 값을 반환할 것입니다
 
-console.log(name); // expected to print 'Robert C. Martin' but instead 'Um9iZXJ0IEMuIE1hcnRpbg=='
+console.log(name); // 'Robert C. Martin'이 출력되는 것을 예상했지만 'Um9iZXJ0IEMuIE1hcnRpbg=='가 출력됨
 ```
 
 **Good:**
@@ -699,17 +699,17 @@ console.log(name);
 
 ### 사이드 이펙트를 피하세요 (파트 2)
 
-In JavaScript, primitives are passed by value and objects/arrays are passed by reference. In the case of objects and arrays, if your function makes a change in a shopping cart array, for example, by adding an item to purchase, then any other function that uses that `cart` array will be affected by this addition. That may be great, however it can be bad too. Let's imagine a bad situation:  
+자바스크립트에서 원시값은 값에 의해 전달되고 객체/배열은 참조에 의해 전달됩니다. 객체와 배열의 경우, 예를 들어 어떤 함수가 쇼핑 장바구니 배열을 변경하는 기능을 가지고 있다면, 구매하려는 아이템이 추가됨으로써 `cart` 배열을 사용하는 다른 함수는 이 추가의 영향을 받을 수 있습니다. 이것은 장점이 될 수도 있지만 단점이 될 수도 있습니다. 최악의 상황을 상상해보겠습니다:  
 
-The user clicks the "Purchase", button which calls a `purchase` function that spawns a network request and sends the `cart` array to the server. Because of a bad network connection, the purchase function has to keep retrying the request. Now, what if in the meantime the user accidentally clicks "Add to Cart" button on an item they don't actually want before the network request begins? If that happens and the network request begins, then that purchase function will send the accidentally added item because it has a reference to a shopping cart array that the `addItemToCart` function modified by adding an unwanted item.  
+사용자는 네트워크 요청을 생성하고 서버에 `cart` 배열을 전송하는 `purchase` 함수를 호출하는 "구매" 버튼을 클릭합니다. 네트워크 연결 불량 때문에 `purchase` 함수는 요청을 재시도해야 합니다. 네트워크 요청이 시작되기 전에 사용자가 원하지 않은 아이템을 살수로 "장바구니에 추가하기" 버튼을 누르면 어떻게 될까요? 네트워크 요청이 시작되면, `purchase` 함수는 `addItemToCart` 함수가 변경한 쇼핑 장바구니 배열을 참조하고 있기 때문에 `purchase` 함수는 실수로 추가된 아이템을 보낼 것입니다.  
 
-A great solution would be for the `addItemToCart` to always clone the `cart`, edit it, and return the clone. This ensures that no other functions that are holding onto a reference of the shopping cart will be affected by any changes.  
+훌륭한 해법은 `addItemToCart` 함수에서 `cart` 배열을 복제하고 그것을 수정하고 그 복제한 값을 반환하는 것입니다. 이는 쇼핑 장바구니 배열을 참조하고 있는 값을 들고 있는 어떤 다른 함수도 다른 변경에 의해 영향을 받지 않는 것을 보장합니다.  
 
-Two caveats to mention to this approach:
+이 접근법에 대한 두 가지 주의사항:
 
-1. There might be cases where you actually want to modify the input object, but when you adopt this programming practice you will find that those cases are pretty rare. Most things can be refactored to have no side effects! (see [pure function](https://en.wikipedia.org/wiki/Pure_function))
+1. 실제로는 입력된 객체값을 변경하기를 원하는 경우가 있을 수 있습니다. 하지만 이러한 프로그래밍 관례를 선택할 때 당신은 이러한 경우가 매우 드물다는 것을 알게 될 것입니다. 대부분은 사이드 이펙트가 없도록 리팩토링될 수 있습니다! ([순수 함수](https://en.wikipedia.org/wiki/Pure_function)를 확인해주세요)
 
-2. Cloning big objects can be very expensive in terms of performance. Luckily, this isn't a big issue in practice because there are great libraries that allow this kind of programming approach to be fast and not as memory intensive as it would be for you to manually clone objects and arrays.
+3. 큰 객체를 복제하는 것은 성능 관점에서 비용이 높을 수 있습니다. 다행히도 이러한 프로그래밍 접근법을 가능하게 해주는 훌륭한 라이브러리가 있기 때문에 큰 문제는 아닙니다. 이는 수동으로 객체와 배열을 복제해주는 것만큼 메모리 집약적이지 않게 해주고 빠르게 복제해줍니다.
 
 **Bad:**
 
@@ -731,7 +731,7 @@ function addItemToCart(cart: CartItem[], item: Item): CartItem[] {
 
 ### 전역 함수를 작성하지 마세요
 
-Polluting globals is a bad practice in JavaScript because you could clash with another library and the user of your API would be none-the-wiser until they get an exception in production. Let's think about an example: what if you wanted to extend JavaScript's native Array method to have a `diff` method that could show the difference between two arrays? You could write your new function to the `Array.prototype`, but it could clash with another library that tried to do the same thing. What if that other library was just using `diff` to find the difference between the first and last elements of an array? This is why it would be much better to just use classes and simply extend the `Array` global.
+전역을 더럽히는 것은 자바스크립트에서 나쁜 관습입니다. 왜냐하면 다른 라이브러리와 충돌날 수 있고 당신의 API의 사용자는 상용에서 예외가 발생할 때까지 전혀 모를 것이기 때문입니다. 한 예제를 생각해보겠습니다: 당신이 자바스크립트 네이티브 배열 메소드를 확장해서 두 배열 사이의 다른 점을 보여주는 `diff` 메소드를 추가하고 싶다면 어떨까요? `Array.prototype`에 당신의 새로운 함수를 작성할 것입니다. 하지만 동일한 기능을 수행하고 있는 다른 라이브러리와 충돌날 수 있습니다. 다른 라이브러리에서는 배열에서 첫 번째 요소와 마지막 요소 사이의 다름만 찾기 위해 `diff` 함수를 사용한다면 어떨까요? 이것이 단지 클래스를 사용해서 전역 `Array`를 상속하는 것이 더 좋은 이유입니다.
 
 **Bad:**
 
