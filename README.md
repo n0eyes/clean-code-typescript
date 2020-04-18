@@ -1910,8 +1910,10 @@ renderLargeShapes(shapes);
 
 ### 인터페이스 분리 원칙 (ISP)
 
-ISP states that "Clients should not be forced to depend upon interfaces that they do not use.". This principle is very much related to the Single Responsibility Principle.
-What it really means is that you should always design your abstractions in a way that the clients that are using the exposed methods do not get the whole pie instead. That also include imposing the clients with the burden of implementing methods that they don’t actually need.
+> TODO: 수정필요
+
+인터페이스 분리 원칙은 "클라이언트는 사용하지 않는 인터페이스에 의존하지 않는다" 라는 것입니다. 이 원칙은 단일 책임 원칙과 많은 관련이 있습니다.
+이것이 진정으로 의미하는 것은 노출된 메소드를 사용하는 클라이언트가 대신 전체 파이를 얻지 않는 방식으로 추상화를 설계해야 한다는 것입니다. 그것은 또한 클라이언트에게 클라이언트가 실제로 필요하지 않은 메소드의 구현을 강요하는 것도 포함합니다.
 
 **Bad:**
 
@@ -1991,15 +1993,15 @@ class EconomicPrinter implements Printer {
 
 ### 의존성 역전 원칙 (DIP)
 
-This principle states two essential things:
+이 원칙은 두 가지 필수적인 사항을 명시합니다:
 
-1. High-level modules should not depend on low-level modules. Both should depend on abstractions.
+1. 상위 레벨의 모듈은 하위 레벨의 모듈에 의존하지 않아야 합니다. 두 모듈은 모두 추상화에 의존해야합니다.
 
-2. Abstractions should not depend upon details. Details should depend on abstractions.
+2. 추상화는 세부사항에 의존하지 않아야 합니다. 세부사항은 추상화에 의존해야 합니다.
 
-This can be hard to understand at first, but if you've worked with Angular, you've seen an implementation of this principle in the form of Dependency Injection (DI). While they are not identical concepts, DIP keeps high-level modules from knowing the details of its low-level modules and setting them up. It can accomplish this through DI. A huge benefit of this is that it reduces the coupling between modules. Coupling is a very bad development pattern because it makes your code hard to refactor.  
-  
-DIP is usually achieved by a using an inversion of control (IoC) container. An example of a powerful IoC container for TypeScript is [InversifyJs](https://www.npmjs.com/package/inversify)
+처음에 바로 이해하기는 어려울 수 있습니다. Angular를 사용해봤다면, 의존성 주입(DI)의 형태 안에서 이 원칙의 구현을 확인해봤을 것입니다. 동일한 개념은 아니지만, DIP는 상위 레벨의 모듈이 하위 레벨의 모듈의 세부사항에 접근하고 설정하지 못하도록 지킵니다. DI를 통해서도 마찬가지로 성취할 수 있습니다. 이것의 큰 장점은 모듈 사이의 결합도를 줄일 수 있다는 것입니다. 결합도는 코드를 리팩토링하기 어렵게 하기 때문에 매우 나쁜 개발 패턴입니다.
+
+DIP는 주로 IoC 컨테이너를 사용함으로써 달성됩니다. 타입스크립트를 위한 강력한 IoC 컨테이너의 예제는 [InversifyJs](https://www.npmjs.com/package/inversify)입니다.
 
 **Bad:**
 
@@ -2015,14 +2017,14 @@ type ReportData = {
 
 class XmlFormatter {
   parse<T>(content: string): T {
-    // Converts an XML string to an object T
+    // XML 문자열을 T 객체로 변환
   }
 }
 
 class ReportReader {
 
-  // BAD: We have created a dependency on a specific request implementation.
-  // We should just have ReportReader depend on a parse method: `parse`
+  // BAD: 특정 요청의 구현에 의존하는 것을 만들었습니다.
+  // `parse` 메소드에 의존하는 `ReportReader`를 만들어야 합니다.
   private readonly formatter = new XmlFormatter();
 
   async read(path: string): Promise<ReportData> {
@@ -2054,14 +2056,14 @@ interface Formatter {
 
 class XmlFormatter implements Formatter {
   parse<T>(content: string): T {
-    // Converts an XML string to an object T
+    // XML 문자열을 T 객체로 변환
   }
 }
 
 
 class JsonFormatter implements Formatter {
   parse<T>(content: string): T {
-    // Converts a JSON string to an object T
+    // JSON 문자열을 T 객체로 변환
   }
 }
 
@@ -2079,7 +2081,7 @@ class ReportReader {
 const reader = new ReportReader(new XmlFormatter());
 await report = await reader.read('report.xml');
 
-// or if we had to read a json report
+// 또는 json 보고서가 필요한 경우
 const reader = new ReportReader(new JsonFormatter());
 await report = await reader.read('report.json');
 ```
