@@ -872,7 +872,7 @@ if (!isEmailUsed(node)) {
 
 ### 조건문을 피하세요
 
-This seems like an impossible task. Upon first hearing this, most people say, "how am I supposed to do anything without an `if` statement?" The answer is that you can use polymorphism to achieve the same task in many cases. The second question is usually, "well that's great but why would I want to do that?" The answer is a previous clean code concept we learned: a function should only do one thing. When you have classes and functions that have `if` statements, you are telling your user that your function does more than one thing. Remember, just do one thing.
+불가능한 작업으로 보일 수 있습니다. 이 말을 처음 들었을 때, 대부분은 "`if`문 없이 내가 뭘 할 수 있겠습니까?" 라고 말합니다. 해답은 많은 경우에 이러한 작업을 완수하기 위해 다형성을 사용하면 된다는 것입니다. 그러면 두 번째 질문으로는 주로 "매우 좋습니다. 하지만 왜 그렇게 해야합니까?" 입니다. 그 해답은 우리가 이전에 배운 클린 코드 컨셉입니다: 함수는 한 가지 일만 해야합니다. `if`문이 있는 클래스와 함수가 있다면, 그 함수는 한 가지 이상의 일을 하고 있다는 것입니다. 함수는 한 가지 일만 해야한다는 것을 기억하세요.
 
 **Bad:**
 
@@ -937,9 +937,9 @@ class Cessna extends Airplane {
 
 ### 타입 체킹을 피하세요
 
-TypeScript is a strict syntactical superset of JavaScript and adds optional static type checking to the language.
-Always prefer to specify types of variables, parameters and return values to leverage the full power of TypeScript features.
-It makes refactoring more easier.
+타입스크립트는 자바스크립트의 엄격한 구문적 상위 집합이며 언어에 선택적인 정적 타입 검사 기능을 추가합니다.
+타입스크립트의 기능을 최대한 활용하기 위해 항상 변수의 타입, 매개변수, 반환값의 타입을 지정하도록 하세요.
+그렇게 하면 리팩토링이 매우 쉬워집니다.
 
 **Bad:**
 
@@ -967,13 +967,13 @@ function travelToTexas(vehicle: Vehicle) {
 
 ### 필요 이상으로 최적화하지 마세요
 
-Modern browsers do a lot of optimization under-the-hood at runtime. A lot of times, if you are optimizing then you are just wasting your time. There are good [resources](https://github.com/petkaantonov/bluebird/wiki/Optimization-killers) for seeing where optimization is lacking. Target those in the meantime, until they are fixed if they can be.
+현대 브라우저는 런타임에서 많은 최적화를 수행합니다. 많은 시간을 최적화하는 데에 사용하고 있다면 시간 낭비입니다. 최적화가 부족한 부분을 확인할 수 있는 좋은 [자료](https://github.com/petkaantonov/bluebird/wiki/Optimization-killers)가 있습니다. 이것을 참조하여 최적화가 부족한 부분만 최적화해줄 수 있습니다.
 
 **Bad:**
 
 ```ts
-// On old browsers, each iteration with uncached `list.length` would be costly
-// because of `list.length` recomputation. In modern browsers, this is optimized.
+// 예전 브라우저에서는 캐시되지 않은 `list.length`를 사용한 각 순회는 비용이 많이 들 것입니다.
+// `list.length`의 재계산 때문입니다. 현대 브라우저에서는 이 부분이 최적화됩니다.
 for (let i = 0, len = list.length; i < len; i++) {
   // ...
 }
@@ -991,8 +991,8 @@ for (let i = 0; i < list.length; i++) {
 
 ### 필요하지 않는 코드는 제거하세요
 
-Dead code is just as bad as duplicate code. There's no reason to keep it in your codebase.
-If it's not being called, get rid of it! It will still be safe in your version history if you still need it.
+사용하지 않은 코드는 중복된 코드만큼 나쁩니다. 당신의 코드에서 이것을 유지할 이유는 없습니다.
+호출되지 않은 코드가 있다면 제거하세요! 지운 코드를 다시 확인할 필요가 있다면 버전 기록에서 볼 수 있습니다.
 
 **Bad:**
 
@@ -1024,14 +1024,13 @@ inventoryTracker('apples', req, 'www.inventory-awesome.io');
 
 ### 이터레이터와 제너레이터를 사용하세요
 
-Use generators and iterables when working with collections of data used like a stream.  
-There are some good reasons:
+스트림과 같이 사용되는 데이터 콜렉션을 사용할 때는 제너레이터와 이터레이블을 사용하세요.
+몇 가지의 좋은 이유가 있습니다:
 
-- decouples the callee from the generator implementation in a sense that callee decides how many
-items to access
-- lazy execution, items are streamed on demand
-- built-in support for iterating items using the `for-of` syntax
-- iterables allow to implement optimized iterator patterns
+- 피호출자가 접근할 아이템 수를 결정한다는 의미에서 피호출자를 제너레이터 구현으로부터 분리할 수 있습니다.
+- 지연 실행, 아이템은 요구에 의해 스트림 처리될 수 있습니다.
+- `for-of` 구문을 사용해 아이템을 순회하는 내장 지원이 있습니다.
+- 이터레이블은 최적화된 이터레이터 패턴을 구현할 수 있습니다.
 
 **Bad:**
 
@@ -1052,15 +1051,15 @@ function print(n: number) {
   fibonacci(n).forEach(fib => console.log(fib));
 }
 
-// Print first 10 Fibonacci numbers.
+// 피보나치 숫자의 첫 번째 10개 숫자를 출력합니다.
 print(10);
 ```
 
 **Good:**
 
 ```ts
-// Generates an infinite stream of Fibonacci numbers.
-// The generator doesn't keep the array of all numbers.
+// 피보나치 숫자의 무한 스트림을 생성합니다.
+// 제너레이터는 모든 숫자의 배열을 유지하고 있지 않습니다.
 function* fibonacci(): IterableIterator<number> {
   let [a, b] = [0, 1];
 
@@ -1078,13 +1077,12 @@ function print(n: number) {
   }  
 }
 
-// Print first 10 Fibonacci numbers.
+// 피보나치 숫자의 첫 번째 10개 숫자를 출력합니다.
 print(10);
 ```
 
-There are libraries that allow working with iterables in a similar way as with native arrays, by
-chaining methods like `map`, `slice`, `forEach` etc. See [itiriri](https://www.npmjs.com/package/itiriri) for
-an example of advanced manipulation with iterables (or [itiriri-async](https://www.npmjs.com/package/itiriri-async) for manipulation of async iterables).
+`map`, `slice`, `forEach` 등과 같은 메소드를 연결함으로써 네이티브 배열을 비슷한 방법으로 이터레이블로 작업할 수 있게 하는 라이브러리가 있습니다.
+이터레이블의 발전된 조작의 사례를 위해 [itiriri](https://www.npmjs.com/package/itiriri)를 확인해주세요. (또는 비동기 이터레이블의 조작을 위해서 [itiriri-async](https://www.npmjs.com/package/itiriri-async)를 확인해주세요.)
 
 ```ts
 import itiriri from 'itiriri';
