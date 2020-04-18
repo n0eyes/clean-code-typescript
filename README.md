@@ -1368,11 +1368,11 @@ class Square implements Shape {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-## Classes
+## 클래스
 
-### Classes should be small
+### 클래스는 작아야 합니다
 
-The class' size is measured by its responsibility. Following the *Single Responsibility principle* a class should be small.
+클래스의 크기는 책임에 의해 측정됩니다. *단일 책임 원칙*에 따르면 클래스는 작아야 합니다.
 
 **Bad:**
 
@@ -1406,29 +1406,29 @@ class Dashboard {
   getVersion(): string { /* ... */ }
 }
 
-// split the responsibilities by moving the remaining methods to other classes
+// 다른 클래스에 남은 메소드를 이동시킴으로써 책임을 분산시키세요
 // ...
 ```
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### High cohesion and low coupling
+### 높은 응집도와 낮은 결합도
 
-Cohesion defines the degree to which class members are related to each other. Ideally, all fields within a class should be used by each method.
-We then say that the class is *maximally cohesive*. In practice, this however is not always possible, nor even advisable. You should however prefer cohesion to be high.  
+응집도는 클래스 멤버가 서로에게 연관되어 있는 정도를 정의합니다. 이상적으로, 클래스 안의 모든 필드는 각 메소드에 의해 사용되어야 합니다.
+그 때 우리는 클래스가 *최대한으로 응집되어있다*라고 말합니다. 이것은 항상 가능하지도 않고 권장하지 않습니다. 그러나 응집도를 높이는 것을 선호해야 합니다.
 
-Coupling refers to how related or dependent are two classes toward each other. Classes are said to be low coupled if changes in one of them doesn't affect the other one.  
-  
-Good software design has **high cohesion** and **low coupling**.
+결합도는 두 클래스가 얼마나 서로에게 관련되어있거나 종속적인 정도를 뜻합니다. 하나의 클래스의 변경이 다른 클래스에게 영향을 주지 않는다면 그 클래스들의 결합도는 낮다고 말합니다.
+
+좋은 소프트웨어 설계는 **높은 응집도**와 **낮은 결합도**를 가집니다.
 
 **Bad:**
 
 ```ts
 class UserManager {
-  // Bad: each private variable is used by one or another group of methods.
-  // It makes clear evidence that the class is holding more than a single responsibility.
-  // If I need only to create the service to get the transactions for a user,
-  // I'm still forced to pass and instance of `emailSender`.
+  // Bad: 각 private 변수는 메소드의 하나 혹은 또 다른 그룹에 의해 사용됩니다.
+  // 클래스가 단일 책임 이상의 책임을 가지고 있다는 명백한 증거입니다.
+  // 사용자의 트랜잭션을 얻기 위해 서비스를 생성하기만 하면 되는 경우,
+  // 여전히 `emailSender` 인스턴스를 전달해야 합니다.
   constructor(
     private readonly db: Database,
     private readonly emailSender: EmailSender) {
@@ -1492,17 +1492,17 @@ class UserNotifier {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Prefer composition over inheritance
+### 상속(inheritance)보다 조합(composition)을 사용하세요
 
-As stated famously in [Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns) by the Gang of Four, you should *prefer composition over inheritance* where you can. There are lots of good reasons to use inheritance and lots of good reasons to use composition. The main point for this maxim is that if your mind instinctively goes for inheritance, try to think if composition could model your problem better. In some cases it can.  
-  
-You might be wondering then, "when should I use inheritance?" It depends on your problem at hand, but this is a decent list of when inheritance makes more sense than composition:
+Gang of Four의 [디자인 패턴](https://en.wikipedia.org/wiki/Design_Patterns)에 나와있듯이 할 수 있는 대로 *상속보다 조합을 사용해야 합니다.* 상속과 조합을 사용해야 하는 좋은 이유들은 각각 많습니다. 이 교훈에서 중요한 점은 당신의 마음이 본능적으로 상속을 추구한다면, 조합이 당신의 문제를 더 좋게 해결할 수 있을지 고민해보라는 것입니다. 어떤 경우에는 더 좋을 수 있습니다.  
 
-1. Your inheritance represents an "is-a" relationship and not a "has-a" relationship (Human->Animal vs. User->UserDetails).
+당신은 "언제 상속을 사용해야 할까요?"라고 의문점을 가질 것입니다. 그것은 당면한 문제에 달려 있습니다. 조합보다 상속이 더 좋은 경우가 아래에 있습니다:
 
-2. You can reuse code from the base classes (Humans can move like all animals).
+1. "has-a" 관계가 아닌 "is-a" 관계일 때 (사람->동물 vs 사용자->사용자 정보)
 
-3. You want to make global changes to derived classes by changing a base class. (Change the caloric expenditure of all animals when they move).
+2. 기반이 되는 클래스로부터 코드를 재사용할 수 있을 때 (사람은 모든 동물처럼 움직일 수 있습니다.)
+
+3. 기반이 되는 클래스를 변경하여 파생된 클래스를 전체적으로 변경하려는 경우 (모든 동물은 움직일 때 칼로리가 소비됩니다.)
 
 **Bad:**
 
@@ -1516,7 +1516,7 @@ class Employee {
   // ...
 }
 
-// Bad because Employees "have" tax data. EmployeeTaxData is not a type of Employee
+// `Employee`가 세금 데이터를 가지기 때문에 나쁜 에입니다. `EmployeeTaxData`는 `Employee`의 타입이 아닙니다.
 class EmployeeTaxData extends Employee {
   constructor(
     name: string,
@@ -1561,9 +1561,9 @@ class EmployeeTaxData {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Use method chaining
+### 메소드 체이닝을 사용하세요
 
-This pattern is very useful and commonly used in many libraries. It allows your code to be expressive, and less verbose. For that reason, use method chaining and take a look at how clean your code will be.
+이 패턴은 매우 유용하고 많은 라이브러리에서 공통적으로 사용하고 있습니다. 이것은 당신의 코드를 표현력이 있게 해주고 덜 장황하게 해줍니다. 이러한 이유로 메소드 체이닝을 사용해서 당신의 코드가 얼마나 명료해지는지 살펴보시길 바랍니다.
 
 **Bad:**
 
