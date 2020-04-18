@@ -1645,9 +1645,9 @@ const query = new QueryBuilder()
 
 ## SOLID
 
-### Single Responsibility Principle (SRP)
+### 단일 책임 원칙 (SRP)
 
-As stated in Clean Code, "There should never be more than one reason for a class to change". It's tempting to jam-pack a class with a lot of functionality, like when you can only take one suitcase on your flight. The issue with this is that your class won't be conceptually cohesive and it will give it many reasons to change. Minimizing the amount of times you need to change a class is important. It's important because if too much functionality is in one class and you modify a piece of it, it can be difficult to understand how that will affect other dependent modules in your codebase.
+클린 코드에서 말하듯이, "클래스를 변경할 때는 단 한 가지 이유만 존재해야 합니다". 여행갈 때 가방 하나에 많은 것을 챙기는 것과 같이, 클래스를 많은 기능으로 꽉 채우고 싶은 유혹이 있습니다. 이러한 문제는 당신의 클래스가 개념적으로 응집력이 있지 않으며 변경될 많은 이유가 존재한다는 것을 말합니다. 클래스를 변경하는 많은 시간을 줄이는 것은 중요합니다. 왜냐하면 너무 많은 기능이 한 클래스에 있고 그 안에서 하나의 기능을 수정한다면, 다른 종속된 모듈에 어떻게 영향을 줄지 이해하는 것이 어렵기 때문입니다.
 
 **Bad:**
 
@@ -1698,9 +1698,9 @@ class UserSettings {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Open/Closed Principle (OCP)
+### 개방 폐쇄 원칙 (OCP)
 
-As stated by Bertrand Meyer, "software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification." What does that mean though? This principle basically states that you should allow users to add new functionalities without changing existing code.
+Bertrand Meyer가 말했듯이, "소프트웨어 엔터티(클래스, 모듈, 함수 등)는 상속에 개방되어 있습니다. 하지만 수정에는 폐쇄되어 있습니다." 이것이 무엇을 의미할까요? 이 원칙은 기본적으로 기존의 코드를 변경하지 않고 새로운 기능을 추가할 수 있도록 하는 것을 명시합니다.
 
 **Bad:**
 
@@ -1728,20 +1728,20 @@ class HttpRequester {
   async fetch<T>(url: string): Promise<T> {
     if (this.adapter instanceof AjaxAdapter) {
       const response = await makeAjaxCall<T>(url);
-      // transform response and return
+      // response 값을 변경하고 반환합니다.
     } else if (this.adapter instanceof NodeAdapter) {
       const response = await makeHttpCall<T>(url);
-      // transform response and return
+      // response 값을 변경하고 반환합니다.
     }
   }
 }
 
 function makeAjaxCall<T>(url: string): Promise<T> {
-  // request and return promise
+  // 서버에 요청하고 프로미스를 반환합니다.
 }
 
 function makeHttpCall<T>(url: string): Promise<T> {
-  // request and return promise
+  // 서버에 요청하고 프로미스를 반환합니다.
 }
 ```
 
@@ -1751,7 +1751,7 @@ function makeHttpCall<T>(url: string): Promise<T> {
 abstract class Adapter {
   abstract async request<T>(url: string): Promise<T>;
 
-  // code shared to subclasses ...
+  // 하위 클래스와 공유하는 코드 ...
 }
 
 class AjaxAdapter extends Adapter {
@@ -1760,7 +1760,7 @@ class AjaxAdapter extends Adapter {
   }
 
   async request<T>(url: string): Promise<T>{
-    // request and return promise
+    // 서버에 요청하고 프로미스를 반환합니다.
   }
 
   // ...
@@ -1772,7 +1772,7 @@ class NodeAdapter extends Adapter {
   }
 
   async request<T>(url: string): Promise<T>{
-    // request and return promise
+    // 서버에 요청하고 프로미스를 반환합니다.
   }
 
   // ...
@@ -1784,18 +1784,18 @@ class HttpRequester {
 
   async fetch<T>(url: string): Promise<T> {
     const response = await this.adapter.request<T>(url);
-    // transform response and return
+    // response 값을 변경하고 반환합니다.
   }
 }
 ```
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Liskov Substitution Principle (LSP)
+### 리스코프 치환 원칙 (LSP)
 
-This is a scary term for a very simple concept. It's formally defined as "If S is a subtype of T, then objects of type T may be replaced with objects of type S (i.e., objects of type S may substitute objects of type T) without altering any of the desirable properties of that program (correctness, task performed, etc.)." That's an even scarier definition.  
-  
-The best explanation for this is if you have a parent class and a child class, then the parent class and child class can be used interchangeably without getting incorrect results. This might still be confusing, so let's take a look at the classic Square-Rectangle example. Mathematically, a square is a rectangle, but if you model it using the "is-a" relationship via inheritance, you quickly get into trouble.
+매우 단순한 개념을 뜻하는 어려워보이는 용어입니다. "만약 S가 T의 하위 타입이라면, T 타입의 객체는 S 타입의 객체로 대체될 수 있습니다. (예: S 타입 객체는 T 타입 객체로 치환될 수도 있습니다.) 이는 프로그램이 갖추어야할 속성(정확성, 수행되는 작업 등)을 변경하지 않아도 대체될 수 있습니다." 더욱 어려워보이는 정의입니다.
+
+이를 위한 최고의 설명은 다음과 같습니다. 만약 부모 클래스와 자식 클래스가 있다면, 부모 클래스와 자식 클래스는 잘못된 결과 없이 서로 교환하여 사용될 수 있습니다. 여전히 혼란스러울 수 있습니다. 고전적인 정사각형-직사각형 예제를 살펴보세요. 수학적으로, 정사각형은 직사각형입니다. 그러나 상속을 통해 "is-a" 관계로 설계한다면, 당신은 곤경에 빠질 수 있습니다.
 
 **Bad:**
 
@@ -1849,7 +1849,7 @@ function renderLargeRectangles(rectangles: Rectangle[]) {
     const area = rectangle
       .setWidth(4)
       .setHeight(5)
-      .getArea(); // BAD: Returns 25 for Square. Should be 20.
+      .getArea(); // BAD: `Square` 클래스에서는 25를 반환합니다. 20이 반환되어야 합니다.
     rectangle.render(area);
   });
 }
@@ -1908,7 +1908,7 @@ renderLargeShapes(shapes);
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Interface Segregation Principle (ISP)
+### 인터페이스 분리 원칙 (ISP)
 
 ISP states that "Clients should not be forced to depend upon interfaces that they do not use.". This principle is very much related to the Single Responsibility Principle.
 What it really means is that you should always design your abstractions in a way that the clients that are using the exposed methods do not get the whole pie instead. That also include imposing the clients with the burden of implementing methods that they don’t actually need.
@@ -1989,7 +1989,7 @@ class EconomicPrinter implements Printer {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Dependency Inversion Principle (DIP)
+### 의존성 역전 원칙 (DIP)
 
 This principle states two essential things:
 
