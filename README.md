@@ -1103,19 +1103,19 @@ itiriri(fibonacci())
 
 **[⬆ 맨 위로 이동](#목차)**
 
-## Objects and Data Structures
+## 객체와 자료구조
 
-### Use getters and setters
+### `getter`와 `setter`를 사용하세요
 
-TypeScript supports getter/setter syntax.
-Using getters and setters to access data from objects that encapsulate behavior could be better than simply looking for a property on an object.
-"Why?" you might ask. Well, here's a list of reasons:
+타입스크립트는 `getter`/`setter` 구문을 지원합니다.
+행동을 캡슐화한 객체에서 데이터를 접근하기 위해 `getter`와 `setter`를 사용하는 것은 객체에서 속성을 단순히 찾는 것보다 낫습니다.
+"왜 그렇습니까?" 라고 물을 수 있습니다. 다음과 같은 이유가 있습니다:
 
-- When you want to do more beyond getting an object property, you don't have to look up and change every accessor in your codebase.
-- Makes adding validation simple when doing a `set`.
-- Encapsulates the internal representation.
-- Easy to add logging and error handling when getting and setting.
-- You can lazy load your object's properties, let's say getting it from a server.
+- 객체 속성을 얻는 것 이상으로 무언가를 더 하고 싶을 때, 코드 안에서 관련된 모든 접근자를 찾고 변경하지 않아도 됩니다.
+- `set`을 사용할 때 검증 로직을 추가하는 것이 간단합니다.
+- 내부의 API를 캡슐화할 수 있습니다.
+- 값을 조회하고 설정할 때 로그를 기록하고 에러를 처리하는 것이 쉽습니다.
+- 서버에서 객체 속성을 불러올 때 지연 로딩할 수 있습니다.
 
 **Bad:**
 
@@ -1159,19 +1159,19 @@ class BankAccount {
   // ...
 }
 
-// Now `BankAccount` encapsulates the validation logic.
-// If one day the specifications change, and we need extra validation rule,
-// we would have to alter only the `setter` implementation,
-// leaving all dependent code unchanged.
+// 이제 `BankAccount`는 검증 로직을 캡슐화합니다.
+// 명세가 바뀐다면, 추가적인 검증 규칙을 추가할 필요가 있습니다.
+// 그 떄, `setter` 구현부만 수정하면 됩니다.
+// 관련있는 다른 코드는 변경할 필요가 없습니다.
 const account = new BankAccount();
 account.balance = 100;
 ```
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Make objects have private/protected members
+### private/protected 멤버를 갖는 객체를 생성하세요
 
-TypeScript supports `public` *(default)*, `protected` and `private` accessors on class members.  
+타입스크립트는 클래스 멤버를 위해 `public` *기본*, `protected`, `private` 접근자를 지원합니다.
 
 **Bad:**
 
@@ -1212,10 +1212,10 @@ class Circle {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Prefer immutability
+### 불변성을 선호하세요
 
-TypeScript's type system allows you to mark individual properties on an interface / class as *readonly*. This allows you to work in a functional way (unexpected mutation is bad).  
-For more advanced scenarios there is a built-in type `Readonly` that takes a type `T` and marks all of its properties as readonly using mapped types (see [mapped types](https://www.typescriptlang.org/docs/handbook/advanced-types.html#mapped-types)).
+타입스크립트의 타입 시스템은 `interface`/`class`의 개별 속성을 *readonly*로 표시할 수 있습니다. 이를 통해 기능적인 방식으로 작업할 수 있습니다. (예상하지 않은 변조는 위험합니다.)  
+더욱 나은 방법으로는 타입 `T`를 갖고 mapped types를 사용하여 모든 각 속성을 읽기 전용으로 표시하는 `Readonly` 내장 타입이 존재합니다. ([mapped types](https://www.typescriptlang.org/docs/handbook/advanced-types.html#mapped-types)를 확인하세요.)
 
 **Bad:**
 
@@ -1237,34 +1237,34 @@ interface Config {
 }
 ```
 
-Case of Array, you can create a read-only array by using `ReadonlyArray<T>`.
-do not allow changes such as `push()` and `fill()`, but can use features such as `concat()` and `slice()` that do not change the value.
+배열의 경우, `ReadonlyArray<T>`를 사용해서 읽기 전용의 배열을 생성할 수 있습니다.
+이것은 `push()`와 `fill()`과 같은 변경을 막습니다. 하지만 값 자체를 변경하지 않는 `concat()`, `slice()`과 같은 기능은 사용할 수 있습니다.
 
 **Bad:**
 
 ```ts
 const array: number[] = [ 1, 3, 5 ];
-array = []; // error
-array.push(100); // array will updated
+array = []; // 에러
+array.push(100); // 배열은 변경될 것입니다.
 ```
 
 **Good:**
 
 ```ts
 const array: ReadonlyArray<number> = [ 1, 3, 5 ];
-array = []; // error
-array.push(100); // error
+array = []; // 에러
+array.push(100); // 에러
 ```
 
-Declaring read-only arguments in [TypeScript 3.4 is a bit easier](https://github.com/microsoft/TypeScript/wiki/What's-new-in-TypeScript#improvements-for-readonlyarray-and-readonly-tuples).
+[TypeScript 3.4 is a bit easier](https://github.com/microsoft/TypeScript/wiki/What's-new-in-TypeScript#improvements-for-readonlyarray-and-readonly-tuples)에서 읽기 전용의 매개변수를 선언할 수 있습니다.
 
 ```ts
 function hoge(args: readonly string[]) {
-  args.push(1); // error
+  args.push(1); // 에러
 }
 ```
 
-Prefer [const assertions](https://github.com/microsoft/TypeScript/wiki/What's-new-in-TypeScript#const-assertions) for literal values.
+리터럴 값을 위해 [const assertions](https://github.com/microsoft/TypeScript/wiki/What's-new-in-TypeScript#const-assertions)를 사용하세요.
 
 **Bad:**
 
@@ -1272,48 +1272,48 @@ Prefer [const assertions](https://github.com/microsoft/TypeScript/wiki/What's-ne
 const config = {
   hello: 'world'
 };
-config.hello = 'world'; // value is changed
+config.hello = 'world'; // 값이 바뀝니다
 
 const array  = [ 1, 3, 5 ];
-array[0] = 10; // value is changed
+array[0] = 10; // 값이 바뀝니다
 
-// writable objects is returned
+// 쓸 수 있는 객체가 반환됩니다
 function readonlyData(value: number) {
   return { value };
 }
 
 const result = readonlyData(100);
-result.value = 200; // value is changed
+result.value = 200; // 값이 바뀝니다
 ```
 
 **Good:**
 
 ```ts
-// read-only object
+// 읽기 전용 객체
 const config = {
   hello: 'world'
 } as const;
-config.hello = 'world'; // error
+config.hello = 'world'; // 에러
 
-// read-only array
+// 읽기 전용 배열
 const array  = [ 1, 3, 5 ] as const;
-array[0] = 10; // error
+array[0] = 10; // 에러
 
-// You can return read-only objects
+// 읽기 전용 객체를 반활할 수 있습니다
 function readonlyData(value: number) {
   return { value } as const;
 }
 
 const result = readonlyData(100);
-result.value = 200; // error
+result.value = 200; // 에러
 ```
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### type vs. interface
+### 타입 vs 인터페이스
 
-Use type when you might need a union or intersection. Use interface when you want `extends` or `implements`. There is no strict rule however, use the one that works for you.  
-For a more detailed explanation refer to this [answer](https://stackoverflow.com/questions/37233735/typescript-interfaces-vs-types/54101543#54101543) about the differences between `type` and `interface` in TypeScript.
+합집합 또는 교집합이 필요할 때 타입을 사용하세요. `extends` 또는 `implements`가 필요할 때 인터페이스를 사용하세요. 엄격한 규칙은 없지만 당신에게 맞는 방법을 사용하세요.  
+타입스크립트에서 `type`과 `interface` 사이의 다른 점에 대해서 더 상세한 설명을 원한다면 이 [답변](https://stackoverflow.com/questions/37233735/typescript-interfaces-vs-types/54101543#54101543)을 참고하세요.
 
 **Bad:**
 
