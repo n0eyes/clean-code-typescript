@@ -2763,10 +2763,10 @@ type User = {
 
 ```ts
 /**
- * 2016-12-20: Removed monads, didn't understand them (RM)
- * 2016-10-01: Improved using special monads (JP)
- * 2016-02-03: Added type-checking (LI)
- * 2015-03-14: Implemented combine (JR)
+ * 2016-12-20: 이해하지 못해서 모나드를 제거함 (RM)
+ * 2016-10-01: 특별한 모나드를 사용해 개선함 (JP)
+ * 2016-02-03: 타입 체킹 추가함 (LI)
+ * 2015-03-14: combine 함수를 구현함 (JR)
  */
 function combine(a: number, b: number): number {
   return a + b;
@@ -2792,7 +2792,7 @@ function combine(a: number, b: number): number {
 
 ```ts
 ////////////////////////////////////////////////////////////////////////////////
-// Client class
+// Client 클래스
 ////////////////////////////////////////////////////////////////////////////////
 class Client {
   id: number;
@@ -2801,14 +2801,14 @@ class Client {
   contact: Contact;
 
   ////////////////////////////////////////////////////////////////////////////////
-  // public methods
+  // public 메소드
   ////////////////////////////////////////////////////////////////////////////////
   public describe(): string {
     // ...
   }
 
   ////////////////////////////////////////////////////////////////////////////////
-  // private methods
+  // private 메소드
   ////////////////////////////////////////////////////////////////////////////////
   private describeAddress(): string {
     // ...
@@ -2893,9 +2893,9 @@ function getActiveSubscriptions(): Promise<Subscription[]> {
 
 ### 리뷰
 
-- [Space0726](https://github.com/Space0726)
-- [zwonlala](https://github.com/zwonlala)
-- [joonghyeob-shin](https://github.com/joonghyeob-shin)
+- [@Space0726](https://github.com/Space0726)
+- [@zwonlala](https://github.com/zwonlala)
+- [@joonghyeob-shin](https://github.com/joonghyeob-shin)
 
 ### 참고자료
 
