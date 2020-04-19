@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img height="250" src="/clean-code-typescript.png" />
+    <img width="380" src="/clean-code-typescript.png" />
     <br> clean-code-typescript
 </h1>
 
