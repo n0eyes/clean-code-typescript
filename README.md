@@ -1,7 +1,21 @@
-# clean-code-typescript [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=클린코드%20타입스크립트&url=https://github.com/738/clean-code-typescript)
+<h1 align="center">
+    <img height="250" src="/clean-code-typescript.png" />
+    <br> clean-code-typescript
+</h1>
 
-타입스크립트를 위한 클린코드  
-[clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript)에서 영감을 받았습니다.
+<p align="center">
+  <a href="https://twitter.com/intent/tweet?text=클린코드%20타입스크립트&url=https://github.com/738/clean-code-typescript">
+      <img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social" alt="Tweet">
+  </a>
+  <a href="https://hits.seeyoufarm.com">
+      <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2F738%2Fclean-code-typescript" alt="Tweet">
+  </a>
+</p>
+
+<p align="center">
+  <b>타입스크립트를 위한 클린코드</b></br>
+  <a href="https://github.com/ryanmcdermott/clean-code-javascript">clean-code-javascript</a>에서 영감을 받았습니다.
+</p>
 
 ## 목차
 
@@ -2896,5 +2910,3 @@ function getActiveSubscriptions(): Promise<Subscription[]> {
 ### 참고자료
 
 - [qkraudghgh/clean-code-javascript-ko](https://github.com/qkraudghgh/clean-code-javascript-ko)
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2F738%2Fclean-code-typescript)](https://hits.seeyoufarm.com)
