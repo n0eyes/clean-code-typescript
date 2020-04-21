@@ -15,7 +15,9 @@
 </p>
 
 <p align="center">
-  <b>타입스크립트를 위한 클린코드</b></br>
+  <b>타입스크립트를 위한 클린코드</b>
+</p>
+<p align="center">
   <a href="https://github.com/ryanmcdermott/clean-code-javascript">clean-code-javascript</a>에서 영감을 받았습니다.
 </p>
 
