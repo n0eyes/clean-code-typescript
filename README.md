@@ -1,9 +1,21 @@
-# clean-code-typescript [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=클린코드%20타입스크립트&url=https://github.com/738/clean-code-typescript)
+<h1 align="center">
+    <img width="380" src="/clean-code-typescript.png" />
+    <br> clean-code-typescript
+</h1>
 
-> 번역 작업 진행중입니다.
+<p align="center">
+  <a href="https://twitter.com/intent/tweet?text=클린코드%20타입스크립트&url=https://github.com/738/clean-code-typescript">
+      <img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social" alt="Tweet">
+  </a>
+  <a href="https://hits.seeyoufarm.com">
+      <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2F738%2Fclean-code-typescript" alt="Tweet">
+  </a>
+</p>
 
-타입스크립트를 위한 클린코드.  
-[clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript)에서 영감을 받았습니다.
+<p align="center">
+  <b>타입스크립트를 위한 클린코드</b></br>
+  <a href="https://github.com/ryanmcdermott/clean-code-javascript">clean-code-javascript</a>에서 영감을 받았습니다.
+</p>
 
 ## 목차
 
@@ -19,6 +31,7 @@
   10. [서식](#서식)
   11. [주석](#주석)
   12. [번역](#번역)
+  13. [번역에 도움을 주신 분들](#번역에-도움을-주신-분들)
 
 ## 소개
 
@@ -31,7 +44,7 @@ Robert C. Martin의 책인 [*클린 코드*](http://www.yes24.com/Product/Goods/
 
 소프트웨어 공학 기술의 역사는 50년이 조금 넘었고, 배워야 할 것이 여전히 많습니다. 소프트웨어 설계가 건축 설계만큼 오래되었을 때는 아마도 아래 규칙들보다 엄격한 규칙을 따라야 할 것입니다. 하지만 지금은 이 지침을 당신과 당신 팀이 작성하는 타입스크립트 코드의 품질을 평가하는 기준으로 삼으세요.
 
-한 가지 더 덧붙이자면, 이 규칙들을 알게 된다 해서 당장 더 나은 개발자가 되는 것은 아니며 코드를 작성할 때 실수를 하지 않게 해주는 것은 아닙니다. 훌륭한 도자기들이 처음엔 말랑한 점토부터 시작하듯이 모든 코드를 처음부터 완벽할 수 없습니다. 하지만 당신은 팀원들과 같이 코드를 리뷰하며 점점 완벽하게 만들어 나가야 합니다. 당신이 처음 작성한 코드를 고칠 때 절대로 자신을 질타하지 마세요. 대신 코드를 부수고 더 나은 코드를 만드세요!
+한 가지 더 말씀드리자면, 이 규칙들을 알게 된다 해서 당장 더 나은 개발자가 되는 것은 아니며 코드를 작성할 때 실수를 하지 않게 해주는 것은 아닙니다. 젖은 점토가 최종의 결과물로 빚어지는 것처럼 모든 코드들도 처음 작성한 코드로 시작됩니다. 결국은 동료들과 리뷰하면서 결점이 제거됩니다. 당신이 처음 작성한 코드에 개선이 필요할 때 자책하지 마세요. 대신 코드가 더 나아지도록 두들기세요!
 
 **[⬆ 맨 위로 이동](#목차)**
 
@@ -62,7 +75,7 @@ function between<T>(value: T, left: T, right: T): boolean {
 
 ### 발음할 수 있는 변수 이름을 사용하세요
 
-발음할 수 없는 이름은 그 변수에 대해서 바보 같이 소리내어 토론할 수 밖에 없습니다.
+발음할 수 없는 이름은 그 변수에 대해서 바보 같이 소리를 내 토론할 수밖에 없습니다.
 
 **Bad:**
 
@@ -331,7 +344,7 @@ createMenu({
 });
 ```
 
-[type aliases](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-aliases)를 사용해서 가독성을 더 높일 수 있습니다:
+[타입 앨리어스](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-aliases)를 사용해서 가독성을 더 높일 수 있습니다:
 
 ```ts
 
@@ -351,9 +364,9 @@ createMenu({
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### 함수는 한가지만 해야합니다
+### 함수는 한 가지만 해야합니다
 
-이것은 소프트웨어 공학에서 단연코 중요한 규칙입니다. 함수가 한가지 이상의 역할을 수행할 때 작성하고 테스트하고 추론하기 어려워집니다. 함수를 하나의 행동으로 정의할 수 있을 때, 쉽게 리팩토링할 수 있으며 코드를 더욱 명료하게 읽을 수 있습니다.
+이것은 소프트웨어 공학에서 단연코 가장 중요한 규칙입니다. 함수가 한 가지 이상의 역할을 수행할 때 작성하고 테스트하고 추론하기 어려워집니다. 함수를 하나의 행동으로 정의할 수 있을 때, 쉽게 리팩토링할 수 있으며 코드를 더욱 명료하게 읽을 수 있습니다.
 이 가이드에서 이 부분만 자기것으로 만들어도 당신은 많은 개발자보다 앞설 수 있습니다.
 
 **Bad:**
@@ -414,7 +427,7 @@ addMonthToDate(date, 1);
 
 ### 함수는 단일 행동을 추상화해야 합니다
 
-함수가 한가지 이상을 추상화한다면 그 함수는 너무 많은 일을 하게 됩니다. 재사용성과 쉬운 테스트를 위해서 함수를 쪼개세요.
+함수가 한 가지 이상을 추상화한다면 그 함수는 너무 많은 일을 하게 됩니다. 재사용성과 쉬운 테스트를 위해서 함수를 쪼개세요.
 
 **Bad:**
 
@@ -483,13 +496,13 @@ function parse(tokens: Token[]): SyntaxTree {
 ### 중복된 코드를 제거해주세요
 
 코드가 중복되지 않도록 최선을 다하세요.
-중복된 코드는 어떤 로직을 변경할 때 한 곳 이상을 변경해야 하기 떄문에 좋지 않습니다.   
+중복된 코드는 어떤 로직을 변경할 때 한 곳 이상을 변경해야 하기 때문에 좋지 않습니다.   
 
 당신이 레스토랑을 운영하면서 재고를 추적한다고 상상해보세요: 모든 토마토, 양파, 마늘, 양념 등.
 관리하는 목록이 여러개일 때 토마토를 넣은 요리를 제공할 때마다 모든 목록을 수정해야 합니다.
 관리하는 목록이 단 하나일 때는 한 곳만 수정하면 됩니다! 
 
-당신은 종종 두 개 이상의 사소한 다른 것들이 있다고 많은 것들이 공유되는 중복되는 코드를 작성합니다. 하지만 그 몇가지 다른 것으로 인해 같은 역할을 하는 두 개 이상의 함수를 만들게 됩니다. 중복된 코드를 제거하는 것은 조금씩 다른 역할을 하는 것을 묶음으로써 하나의 함수/모듈/클래스로 처리하는 추상화를 만드는 것을 의미합니다.
+당신은 종종 두 개 이상의 사소한 차이점이 존재한다고 생각해서 거의 비슷한 코드를 중복 작성합니다. 하지만 그 몇가지 다른 것으로 인해 같은 역할을 하는 두 개 이상의 함수를 만들게 됩니다. 중복된 코드를 제거하는 것은 조금씩 다른 역할을 하는 것을 묶음으로써 하나의 함수/모듈/클래스로 처리하는 추상화를 만드는 것을 의미합니다.
 
 추상화를 올바르게 하는 것은 중요하며, 이것은 [SOLID](#solid) 원칙을 따르는 이유이기도 합니다. 올바르지 않은 추상화는 중복된 코드보다 나쁘므로 주의하세요! 좋은 추상화를 할 수 있다면 그렇게 하라는 말입니다! 반복하지 마세요. 그렇지 않으면 하나를 변경할 때마다 여러 곳을 변경하게 될 것입니다.
 
@@ -567,7 +580,7 @@ function showEmployeeList(employee: Developer | Manager) {
 }
 ```
 
-당신은 중복된 코드에 대해서 비판적으로 생각해야 합니다. 가끔은 중복된 코드와 불필요한 추상화로 인한 복잡성 간의 맞바꿈이 있을 수 있습니다. 서로 다른 두 개의 모듈의 구현이 유사해보이지만 서로 다른 도메인에 존재하는 경우, 코드 중복은 공통된 코드에서 추출해서 중복을 줄이는 것보다 나은 선택일 수 있습니다. 이 경우에 추출된 공통의 코드는 두 모듈 사이에서 간접적인 의존성이 나타나게 됩니다.
+당신은 중복된 코드에 대해서 비판적으로 생각해야 합니다. 가끔은 중복된 코드와 불필요한 추상화로 인한 복잡성 간의 맞바꿈이 있을 수 있습니다. 서로 다른 두 개의 모듈의 구현이 유사해 보이지만 서로 다른 도메인에 존재하는 경우, 코드 중복은 공통된 코드에서 추출해서 중복을 줄이는 것보다 나은 선택일 수 있습니다. 이 경우에 추출된 공통의 코드는 두 모듈 사이에서 간접적인 의존성이 나타나게 됩니다.
 
 **[⬆ 맨 위로 이동](#목차)**
 
@@ -621,7 +634,7 @@ function createMenu({ title = 'Foo', body = 'Bar', buttonText = 'Baz', cancellab
 createMenu({ body: 'Bar' });
 ```
 
-사이드 이펙트와 `undefined` 혹은 `null` 값을 명시적으로 넘기는 예상치못한 행동을 피하기 위해서 타입스크립트 컴파일러에게 그것을 허락하지않도록 설정할 수 있습니다. 타입스크립트에서 [`--strictNullChecks`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#--strictnullchecks) 옵션을 확인하세요.
+사이드 이펙트와 `undefined` 혹은 `null` 값을 명시적으로 넘기는 예상치 못한 행동을 피하기 위해서 타입스크립트 컴파일러에게 그것을 허락하지 않도록 설정할 수 있습니다. 타입스크립트에서 [`--strictNullChecks`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#--strictnullchecks) 옵션을 확인하세요.
 
 **[⬆ 맨 위로 이동](#목차)**
 
@@ -661,15 +674,15 @@ function createFile(name: string) {
 함수는 값을 가져와서 다른 값을 반환하는 것 이외에 다른 것을 할 경우 사이드 이펙트를 발생시킬 수 있습니다. 사이드 이펙트는 파일을 쓴다거나, 전역 변수를 조작한다거나, 뜻하지 않게 낯선 사람에게 당신의 전재산을 송금할 수 있습니다.
 
 당신은 가끔 프로그램에서 사이드 이펙트를 가질 필요가 있습니다. 이전의 사례에서와 같이 당신은 파일을 써야할 때가 있습니다.
-당신이 하고 싶은 것은 이것을 하는 곳을 중앙화하는 것입니다. 특정 파일을 쓰기 위해 몇 개의 함수와 클래스를 만들지 마세요.
-그것을 행하는 서비스를 하나만 만드세요. 오직 하나입니다.
+당신이 하고 싶은 것은 이것을 중앙화하는 것입니다. 특정 파일을 쓰기 위해 몇 개의 함수와 클래스를 만들지 마세요.
+그것을 행하는 서비스를 단 하나만 만드세요.
 
-The main point is to avoid common pitfalls like sharing state between objects without any structure, using mutable data types that can be written to by anything, and not centralizing where your side effects occur. If you can do this, you will be happier than the vast majority of other programmers.
+중요한 것은 어떠한 구조도 없이 객체 사이에 상태를 공유하거나 어떤 것에 의해서든지 변경될 수 있는 데이터 타입을 사용하거나 사이드 이펙트가 일어나는 곳을 중앙화 하지 않는 것과 같은 위험 요소를 피하는 것입니다. 만약 그렇게 할 수 있다면, 당신은 대부분의 다른 프로그래머들보다 더욱 행복할 것입니다.
 
 **Bad:**
 
 ```ts
-// Global variable referenced by following function.
+// 아래의 함수에서 참조하는 전역 변수입니다.
 let name = 'Robert C. Martin';
 
 function toBase64() {
@@ -677,9 +690,9 @@ function toBase64() {
 }
 
 toBase64();
-// If we had another function that used this name, now it'd be a Base64 value
+// 이 이름을 사용하는 다른 함수가 있다면, 그것은 Base64 값을 반환할 것입니다
 
-console.log(name); // expected to print 'Robert C. Martin' but instead 'Um9iZXJ0IEMuIE1hcnRpbg=='
+console.log(name); // 'Robert C. Martin'이 출력되는 것을 예상했지만 'Um9iZXJ0IEMuIE1hcnRpbg=='가 출력됨
 ```
 
 **Good:**
@@ -699,17 +712,17 @@ console.log(name);
 
 ### 사이드 이펙트를 피하세요 (파트 2)
 
-In JavaScript, primitives are passed by value and objects/arrays are passed by reference. In the case of objects and arrays, if your function makes a change in a shopping cart array, for example, by adding an item to purchase, then any other function that uses that `cart` array will be affected by this addition. That may be great, however it can be bad too. Let's imagine a bad situation:  
+자바스크립트에서 원시값은 값에 의해 전달되고 객체/배열은 참조에 의해 전달됩니다. 예를 들어, 객체와 배열의 경우 어떤 함수가 쇼핑 장바구니 배열을 변경하는 기능을 가지고 있다면, 구매하려는 아이템이 추가됨으로써 `cart` 배열을 사용하는 다른 함수는 이 추가의 영향을 받을 수 있습니다. 이것은 장점이 될 수도 있지만 단점이 될 수도 있습니다. 최악의 상황을 상상해보겠습니다:  
 
-The user clicks the "Purchase", button which calls a `purchase` function that spawns a network request and sends the `cart` array to the server. Because of a bad network connection, the purchase function has to keep retrying the request. Now, what if in the meantime the user accidentally clicks "Add to Cart" button on an item they don't actually want before the network request begins? If that happens and the network request begins, then that purchase function will send the accidentally added item because it has a reference to a shopping cart array that the `addItemToCart` function modified by adding an unwanted item.  
+사용자는 네트워크 요청을 생성하고 서버에 `cart` 배열을 전송하는 `purchase` 함수를 호출하는 "구매" 버튼을 클릭합니다. 네트워크 연결 불량 때문에 `purchase` 함수는 요청을 재시도해야 합니다. 네트워크 요청이 시작되기 전에 사용자가 원하지 않은 아이템을 실수로 "장바구니에 추가하기" 버튼을 누르면 어떻게 될까요? 네트워크 요청이 시작되면, `purchase` 함수는 `addItemToCart` 함수가 변경한 쇼핑 장바구니 배열을 참조하고 있기 때문에 `purchase` 함수는 실수로 추가된 아이템을 보낼 것입니다.  
 
-A great solution would be for the `addItemToCart` to always clone the `cart`, edit it, and return the clone. This ensures that no other functions that are holding onto a reference of the shopping cart will be affected by any changes.  
+훌륭한 해법은 `addItemToCart` 함수에서 `cart` 배열을 복제하고 그것을 수정하고 그 복제한 값을 반환하는 것입니다. 이는 쇼핑 장바구니 배열을 참조하고 있는 값을 들고 있는 어떤 다른 함수도 다른 변경에 의해 영향을 받지 않는 것을 보장합니다.  
 
-Two caveats to mention to this approach:
+이 접근법에 대한 두 가지 주의사항:
 
-1. There might be cases where you actually want to modify the input object, but when you adopt this programming practice you will find that those cases are pretty rare. Most things can be refactored to have no side effects! (see [pure function](https://en.wikipedia.org/wiki/Pure_function))
+1. 실제로는 입력된 객체값을 변경하기를 원하는 경우가 있을 수 있습니다. 하지만 이러한 프로그래밍 관례를 선택할 때 당신은 이러한 경우가 매우 드물다는 것을 알게 될 것입니다. 대부분은 사이드 이펙트가 없도록 리팩토링될 수 있습니다! ([순수 함수](https://en.wikipedia.org/wiki/Pure_function)를 확인해주세요)
 
-2. Cloning big objects can be very expensive in terms of performance. Luckily, this isn't a big issue in practice because there are great libraries that allow this kind of programming approach to be fast and not as memory intensive as it would be for you to manually clone objects and arrays.
+3. 큰 객체를 복제하는 것은 성능 관점에서 비용이 높을 수 있습니다. 다행히도 이러한 프로그래밍 접근법을 가능하게 해주는 훌륭한 라이브러리가 있기 때문에 큰 문제는 아닙니다. 이는 수동으로 객체와 배열을 복제해주는 것만큼 메모리 집약적이지 않게 해주고 빠르게 복제해줍니다.
 
 **Bad:**
 
@@ -731,7 +744,7 @@ function addItemToCart(cart: CartItem[], item: Item): CartItem[] {
 
 ### 전역 함수를 작성하지 마세요
 
-Polluting globals is a bad practice in JavaScript because you could clash with another library and the user of your API would be none-the-wiser until they get an exception in production. Let's think about an example: what if you wanted to extend JavaScript's native Array method to have a `diff` method that could show the difference between two arrays? You could write your new function to the `Array.prototype`, but it could clash with another library that tried to do the same thing. What if that other library was just using `diff` to find the difference between the first and last elements of an array? This is why it would be much better to just use classes and simply extend the `Array` global.
+전역을 더럽히는 것은 자바스크립트에서 나쁜 관습입니다. 왜냐하면 다른 라이브러리와 충돌날 수 있고 당신의 API의 사용자는 상용에서 예외가 발생할 때까지 전혀 모를 것이기 때문입니다. 한 예제를 생각해보겠습니다: 당신이 자바스크립트 네이티브 배열 메소드를 확장해서 두 배열 사이의 다른 점을 보여주는 `diff` 메소드를 추가하고 싶다면 어떨까요? `Array.prototype`에 당신의 새로운 함수를 작성할 것입니다. 하지만 동일한 기능을 수행하고 있는 다른 라이브러리와 충돌날 수 있습니다. 다른 라이브러리에서는 배열에서 첫 번째 요소와 마지막 요소 사이의 다름만 찾기 위해 `diff` 함수를 사용한다면 어떨까요? 이것이 단지 클래스를 사용해서 전역 `Array`를 상속하는 것이 더 좋은 이유입니다.
 
 **Bad:**
 
@@ -872,7 +885,7 @@ if (!isEmailUsed(node)) {
 
 ### 조건문을 피하세요
 
-This seems like an impossible task. Upon first hearing this, most people say, "how am I supposed to do anything without an `if` statement?" The answer is that you can use polymorphism to achieve the same task in many cases. The second question is usually, "well that's great but why would I want to do that?" The answer is a previous clean code concept we learned: a function should only do one thing. When you have classes and functions that have `if` statements, you are telling your user that your function does more than one thing. Remember, just do one thing.
+불가능해보일 수 있습니다. 처음 이를 본 대부분의 사람들은 "대체 `if`문 없이 뭘 할 수 있나요?" 라고 반응합니다. 하지만 많은 경우에 다형성을 사용한다면 해결할 수 있습니다. 그 다음 반응으로는 "좋아요. 하지만 왜 그래야하죠?" 입니다. 이에 대한 해답은 우리가 이전에 배운 클린 코드 컨셉 중 "함수는 한 가지 일만 해야합니다" 입니다. `if`문이 있는 클래스와 함수가 있다면, 그 함수는 한 가지 이상의 일을 하고 있다는 것입니다. 함수는 한 가지 일만 해야한다는 것을 기억하세요.
 
 **Bad:**
 
@@ -937,9 +950,9 @@ class Cessna extends Airplane {
 
 ### 타입 체킹을 피하세요
 
-TypeScript is a strict syntactical superset of JavaScript and adds optional static type checking to the language.
-Always prefer to specify types of variables, parameters and return values to leverage the full power of TypeScript features.
-It makes refactoring more easier.
+타입스크립트는 자바스크립트의 엄격한 구문적 상위 집합이며 언어에 선택적인 정적 타입 검사 기능을 추가합니다.
+타입스크립트의 기능을 최대한 활용하기 위해 항상 변수의 타입, 매개변수, 반환값의 타입을 지정하도록 하세요.
+그렇게 하면 리팩토링이 매우 쉬워집니다.
 
 **Bad:**
 
@@ -967,13 +980,13 @@ function travelToTexas(vehicle: Vehicle) {
 
 ### 필요 이상으로 최적화하지 마세요
 
-Modern browsers do a lot of optimization under-the-hood at runtime. A lot of times, if you are optimizing then you are just wasting your time. There are good [resources](https://github.com/petkaantonov/bluebird/wiki/Optimization-killers) for seeing where optimization is lacking. Target those in the meantime, until they are fixed if they can be.
+현대 브라우저는 런타임에서 많은 최적화를 수행합니다. 많은 시간을 최적화하는 데에 사용하고 있다면 시간 낭비입니다. 최적화가 부족한 부분을 확인할 수 있는 좋은 [자료](https://github.com/petkaantonov/bluebird/wiki/Optimization-killers)가 있습니다. 이것을 참조하여 최적화가 부족한 부분만 최적화해줄 수 있습니다.
 
 **Bad:**
 
 ```ts
-// On old browsers, each iteration with uncached `list.length` would be costly
-// because of `list.length` recomputation. In modern browsers, this is optimized.
+// 예전 브라우저에서는 캐시되지 않은 `list.length`를 사용한 각 순회는 비용이 많이 들 것입니다.
+// `list.length`의 재계산 때문입니다. 현대 브라우저에서는 이 부분이 최적화됩니다.
 for (let i = 0, len = list.length; i < len; i++) {
   // ...
 }
@@ -991,8 +1004,8 @@ for (let i = 0; i < list.length; i++) {
 
 ### 필요하지 않는 코드는 제거하세요
 
-Dead code is just as bad as duplicate code. There's no reason to keep it in your codebase.
-If it's not being called, get rid of it! It will still be safe in your version history if you still need it.
+사용하지 않은 코드는 중복된 코드만큼 나쁩니다. 당신의 코드에서 이것을 유지할 이유는 없습니다.
+호출되지 않은 코드가 있다면 제거하세요! 지운 코드를 다시 확인할 필요가 있다면 버전 기록에서 볼 수 있습니다.
 
 **Bad:**
 
@@ -1022,16 +1035,15 @@ inventoryTracker('apples', req, 'www.inventory-awesome.io');
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### 이터레이터와 제너레이터를 사용하세요
+### `iterator`와 `generator`를 사용하세요
 
-Use generators and iterables when working with collections of data used like a stream.  
-There are some good reasons:
+스트림과 같이 사용되는 데이터 콜렉션을 사용할 때는 `generator`와 `iterable`을 사용하세요.
+몇 가지의 좋은 이유가 있습니다:
 
-- decouples the callee from the generator implementation in a sense that callee decides how many
-items to access
-- lazy execution, items are streamed on demand
-- built-in support for iterating items using the `for-of` syntax
-- iterables allow to implement optimized iterator patterns
+- 피호출자가 접근할 아이템 수를 결정한다는 의미에서 피호출자를 `generator` 구현으로부터 분리할 수 있습니다.
+- 지연 실행, 아이템은 요구에 의해 스트림 처리될 수 있습니다.
+- `for-of` 구문을 사용해 아이템을 순회하는 내장 지원이 있습니다.
+- `iterable`은 최적화된 `iterator` 패턴을 구현할 수 있습니다.
 
 **Bad:**
 
@@ -1052,15 +1064,15 @@ function print(n: number) {
   fibonacci(n).forEach(fib => console.log(fib));
 }
 
-// Print first 10 Fibonacci numbers.
+// 피보나치 숫자의 첫 번째 10개 숫자를 출력합니다.
 print(10);
 ```
 
 **Good:**
 
 ```ts
-// Generates an infinite stream of Fibonacci numbers.
-// The generator doesn't keep the array of all numbers.
+// 피보나치 숫자의 무한 스트림을 생성합니다.
+// `generator`는 모든 숫자의 배열을 유지하고 있지 않습니다.
 function* fibonacci(): IterableIterator<number> {
   let [a, b] = [0, 1];
 
@@ -1078,13 +1090,12 @@ function print(n: number) {
   }  
 }
 
-// Print first 10 Fibonacci numbers.
+// 피보나치 숫자의 첫 번째 10개 숫자를 출력합니다.
 print(10);
 ```
 
-There are libraries that allow working with iterables in a similar way as with native arrays, by
-chaining methods like `map`, `slice`, `forEach` etc. See [itiriri](https://www.npmjs.com/package/itiriri) for
-an example of advanced manipulation with iterables (or [itiriri-async](https://www.npmjs.com/package/itiriri-async) for manipulation of async iterables).
+`map`, `slice`, `forEach` 등과 같은 메소드를 연결함으로써 네이티브 배열을 비슷한 방법으로 `iterable`로 작업할 수 있게 하는 라이브러리가 있습니다.
+`iterable`의 발전된 조작의 사례를 위해 [itiriri](https://www.npmjs.com/package/itiriri)를 확인해주세요. (또는 비동기 `iterable`의 조작을 위해서 [itiriri-async](https://www.npmjs.com/package/itiriri-async)를 확인해주세요.)
 
 ```ts
 import itiriri from 'itiriri';
@@ -1105,19 +1116,19 @@ itiriri(fibonacci())
 
 **[⬆ 맨 위로 이동](#목차)**
 
-## Objects and Data Structures
+## 객체와 자료구조
 
-### Use getters and setters
+### `getter`와 `setter`를 사용하세요
 
-TypeScript supports getter/setter syntax.
-Using getters and setters to access data from objects that encapsulate behavior could be better than simply looking for a property on an object.
-"Why?" you might ask. Well, here's a list of reasons:
+타입스크립트는 `getter`/`setter` 구문을 지원합니다.
+행동을 캡슐화한 객체에서 데이터를 접근하기 위해 `getter`와 `setter`를 사용하는 것은 객체에서 속성을 단순히 찾는 것보다 낫습니다.
+"왜 그렇습니까?" 라고 물을 수 있습니다. 다음과 같은 이유가 있습니다:
 
-- When you want to do more beyond getting an object property, you don't have to look up and change every accessor in your codebase.
-- Makes adding validation simple when doing a `set`.
-- Encapsulates the internal representation.
-- Easy to add logging and error handling when getting and setting.
-- You can lazy load your object's properties, let's say getting it from a server.
+- 객체 속성을 얻는 것 이상으로 무언가를 더 하고 싶을 때, 코드 안에서 관련된 모든 접근자를 찾고 변경하지 않아도 됩니다.
+- `set`을 사용할 때 검증 로직을 추가하는 것이 간단합니다.
+- 내부의 API를 캡슐화할 수 있습니다.
+- 값을 조회하고 설정할 때 로그를 기록하고 에러를 처리하는 것이 쉽습니다.
+- 서버에서 객체 속성을 불러올 때 지연 로딩할 수 있습니다.
 
 **Bad:**
 
@@ -1161,19 +1172,19 @@ class BankAccount {
   // ...
 }
 
-// Now `BankAccount` encapsulates the validation logic.
-// If one day the specifications change, and we need extra validation rule,
-// we would have to alter only the `setter` implementation,
-// leaving all dependent code unchanged.
+// 이제 `BankAccount`는 검증 로직을 캡슐화합니다.
+// 명세가 바뀐다면, 추가적인 검증 규칙을 추가할 필요가 있습니다.
+// 그 때, `setter` 구현부만 수정하면 됩니다.
+// 관련있는 다른 코드는 변경할 필요가 없습니다.
 const account = new BankAccount();
 account.balance = 100;
 ```
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Make objects have private/protected members
+### private/protected 멤버를 갖는 객체를 생성하세요
 
-TypeScript supports `public` *(default)*, `protected` and `private` accessors on class members.  
+타입스크립트는 클래스 멤버를 위해 `public` *기본*, `protected`, `private` 접근자를 지원합니다.
 
 **Bad:**
 
@@ -1214,10 +1225,10 @@ class Circle {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Prefer immutability
+### 불변성을 선호하세요
 
-TypeScript's type system allows you to mark individual properties on an interface / class as *readonly*. This allows you to work in a functional way (unexpected mutation is bad).  
-For more advanced scenarios there is a built-in type `Readonly` that takes a type `T` and marks all of its properties as readonly using mapped types (see [mapped types](https://www.typescriptlang.org/docs/handbook/advanced-types.html#mapped-types)).
+타입스크립트의 타입 시스템은 `interface`/`class`의 개별 속성을 *readonly*로 표시할 수 있습니다. 이를 통해 기능적인 방식으로 작업할 수 있습니다. (예상하지 않은 변조는 위험합니다.)  
+더욱 나은 방법으로는 타입 `T`를 갖고 mapped types를 사용하여 모든 각 속성을 읽기 전용으로 표시하는 `Readonly` 내장 타입이 존재합니다. ([mapped types](https://www.typescriptlang.org/docs/handbook/advanced-types.html#mapped-types)를 확인하세요.)
 
 **Bad:**
 
@@ -1239,34 +1250,34 @@ interface Config {
 }
 ```
 
-Case of Array, you can create a read-only array by using `ReadonlyArray<T>`.
-do not allow changes such as `push()` and `fill()`, but can use features such as `concat()` and `slice()` that do not change the value.
+배열의 경우, `ReadonlyArray<T>`를 사용해서 읽기 전용의 배열을 생성할 수 있습니다.
+이것은 `push()`와 `fill()`과 같은 변경을 막습니다. 하지만 값 자체를 변경하지 않는 `concat()`, `slice()`과 같은 기능은 사용할 수 있습니다.
 
 **Bad:**
 
 ```ts
 const array: number[] = [ 1, 3, 5 ];
-array = []; // error
-array.push(100); // array will updated
+array = []; // 에러
+array.push(100); // 배열은 변경될 것입니다.
 ```
 
 **Good:**
 
 ```ts
 const array: ReadonlyArray<number> = [ 1, 3, 5 ];
-array = []; // error
-array.push(100); // error
+array = []; // 에러
+array.push(100); // 에러
 ```
 
-Declaring read-only arguments in [TypeScript 3.4 is a bit easier](https://github.com/microsoft/TypeScript/wiki/What's-new-in-TypeScript#improvements-for-readonlyarray-and-readonly-tuples).
+[TypeScript 3.4 is a bit easier](https://github.com/microsoft/TypeScript/wiki/What's-new-in-TypeScript#improvements-for-readonlyarray-and-readonly-tuples)에서 읽기 전용의 매개변수를 선언할 수 있습니다.
 
 ```ts
 function hoge(args: readonly string[]) {
-  args.push(1); // error
+  args.push(1); // 에러
 }
 ```
 
-Prefer [const assertions](https://github.com/microsoft/TypeScript/wiki/What's-new-in-TypeScript#const-assertions) for literal values.
+리터럴 값을 위해 [const assertions](https://github.com/microsoft/TypeScript/wiki/What's-new-in-TypeScript#const-assertions)를 사용하세요.
 
 **Bad:**
 
@@ -1274,48 +1285,48 @@ Prefer [const assertions](https://github.com/microsoft/TypeScript/wiki/What's-ne
 const config = {
   hello: 'world'
 };
-config.hello = 'world'; // value is changed
+config.hello = 'world'; // 값이 바뀝니다
 
 const array  = [ 1, 3, 5 ];
-array[0] = 10; // value is changed
+array[0] = 10; // 값이 바뀝니다
 
-// writable objects is returned
+// 쓸 수 있는 객체가 반환됩니다
 function readonlyData(value: number) {
   return { value };
 }
 
 const result = readonlyData(100);
-result.value = 200; // value is changed
+result.value = 200; // 값이 바뀝니다
 ```
 
 **Good:**
 
 ```ts
-// read-only object
+// 읽기 전용 객체
 const config = {
   hello: 'world'
 } as const;
-config.hello = 'world'; // error
+config.hello = 'world'; // 에러
 
-// read-only array
+// 읽기 전용 배열
 const array  = [ 1, 3, 5 ] as const;
-array[0] = 10; // error
+array[0] = 10; // 에러
 
-// You can return read-only objects
+// 읽기 전용 객체를 반활할 수 있습니다
 function readonlyData(value: number) {
   return { value } as const;
 }
 
 const result = readonlyData(100);
-result.value = 200; // error
+result.value = 200; // 에러
 ```
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### type vs. interface
+### 타입 vs 인터페이스
 
-Use type when you might need a union or intersection. Use interface when you want `extends` or `implements`. There is no strict rule however, use the one that works for you.  
-For a more detailed explanation refer to this [answer](https://stackoverflow.com/questions/37233735/typescript-interfaces-vs-types/54101543#54101543) about the differences between `type` and `interface` in TypeScript.
+합집합 또는 교집합이 필요할 때 타입을 사용하세요. `extends` 또는 `implements`가 필요할 때 인터페이스를 사용하세요. 엄격한 규칙은 없지만 당신에게 맞는 방법을 사용하세요.  
+타입스크립트에서 `type`과 `interface` 사이의 다른 점에 대해서 더 상세한 설명을 원한다면 이 [답변](https://stackoverflow.com/questions/37233735/typescript-interfaces-vs-types/54101543#54101543)을 참고하세요.
 
 **Bad:**
 
@@ -1370,11 +1381,11 @@ class Square implements Shape {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-## Classes
+## 클래스
 
-### Classes should be small
+### 클래스는 작아야 합니다
 
-The class' size is measured by its responsibility. Following the *Single Responsibility principle* a class should be small.
+클래스의 크기는 책임에 의해 측정됩니다. *단일 책임 원칙*에 따르면 클래스는 작아야 합니다.
 
 **Bad:**
 
@@ -1408,29 +1419,29 @@ class Dashboard {
   getVersion(): string { /* ... */ }
 }
 
-// split the responsibilities by moving the remaining methods to other classes
+// 다른 클래스에 남은 메소드를 이동시킴으로써 책임을 분산시키세요
 // ...
 ```
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### High cohesion and low coupling
+### 높은 응집도와 낮은 결합도
 
-Cohesion defines the degree to which class members are related to each other. Ideally, all fields within a class should be used by each method.
-We then say that the class is *maximally cohesive*. In practice, this however is not always possible, nor even advisable. You should however prefer cohesion to be high.  
+응집도는 클래스 멤버가 서로에게 연관되어 있는 정도를 정의합니다. 이상적으로, 클래스 안의 모든 필드는 각 메소드에 의해 사용되어야 합니다.
+그 때 우리는 클래스가 *최대한으로 응집되어있다*라고 말합니다. 이것은 항상 가능하지도 않고 권장하지 않습니다. 그러나 응집도를 높이는 것을 선호해야 합니다.
 
-Coupling refers to how related or dependent are two classes toward each other. Classes are said to be low coupled if changes in one of them doesn't affect the other one.  
-  
-Good software design has **high cohesion** and **low coupling**.
+결합도는 두 클래스가 얼마나 서로에게 관련되어있거나 종속적인 정도를 뜻합니다. 하나의 클래스의 변경이 다른 클래스에게 영향을 주지 않는다면 그 클래스들의 결합도는 낮다고 말합니다.
+
+좋은 소프트웨어 설계는 **높은 응집도**와 **낮은 결합도**를 가집니다.
 
 **Bad:**
 
 ```ts
 class UserManager {
-  // Bad: each private variable is used by one or another group of methods.
-  // It makes clear evidence that the class is holding more than a single responsibility.
-  // If I need only to create the service to get the transactions for a user,
-  // I'm still forced to pass and instance of `emailSender`.
+  // Bad: 각 private 변수는 메소드의 하나 혹은 또 다른 그룹에 의해 사용됩니다.
+  // 클래스가 단일 책임 이상의 책임을 가지고 있다는 명백한 증거입니다.
+  // 사용자의 트랜잭션을 얻기 위해 서비스를 생성하기만 하면 되는 경우,
+  // 여전히 `emailSender` 인스턴스를 전달해야 합니다.
   constructor(
     private readonly db: Database,
     private readonly emailSender: EmailSender) {
@@ -1494,17 +1505,17 @@ class UserNotifier {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Prefer composition over inheritance
+### 상속(inheritance)보다 조합(composition)을 사용하세요
 
-As stated famously in [Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns) by the Gang of Four, you should *prefer composition over inheritance* where you can. There are lots of good reasons to use inheritance and lots of good reasons to use composition. The main point for this maxim is that if your mind instinctively goes for inheritance, try to think if composition could model your problem better. In some cases it can.  
-  
-You might be wondering then, "when should I use inheritance?" It depends on your problem at hand, but this is a decent list of when inheritance makes more sense than composition:
+Gang of Four의 [디자인 패턴](https://en.wikipedia.org/wiki/Design_Patterns)에 나와있듯이 할 수 있는 대로 *상속보다 조합을 사용해야 합니다.* 상속과 조합을 사용해야 하는 좋은 이유들은 각각 많습니다. 이 교훈에서 중요한 점은 당신의 마음이 본능적으로 상속을 추구한다면, 조합이 당신의 문제를 더 좋게 해결할 수 있을지 고민해보라는 것입니다. 어떤 경우에는 더 좋을 수 있습니다.  
 
-1. Your inheritance represents an "is-a" relationship and not a "has-a" relationship (Human->Animal vs. User->UserDetails).
+당신은 "언제 상속을 사용해야 할까요?" 라고 의문점을 가질 것입니다. 그것은 당면한 문제에 달려 있습니다. 조합보다 상속이 더 좋은 경우가 아래에 있습니다:
 
-2. You can reuse code from the base classes (Humans can move like all animals).
+1. "has-a" 관계가 아닌 "is-a" 관계일 때 (사람->동물 vs 사용자->사용자 정보)
 
-3. You want to make global changes to derived classes by changing a base class. (Change the caloric expenditure of all animals when they move).
+2. 기반이 되는 클래스로부터 코드를 재사용할 수 있을 때 (사람은 모든 동물처럼 움직일 수 있습니다.)
+
+3. 기반이 되는 클래스를 변경하여 파생된 클래스를 전체적으로 변경하려는 경우 (모든 동물은 움직일 때 칼로리가 소비됩니다.)
 
 **Bad:**
 
@@ -1518,7 +1529,7 @@ class Employee {
   // ...
 }
 
-// Bad because Employees "have" tax data. EmployeeTaxData is not a type of Employee
+// `Employee`가 세금 데이터를 가지기 때문에 나쁜 에입니다. `EmployeeTaxData`는 `Employee`의 타입이 아닙니다.
 class EmployeeTaxData extends Employee {
   constructor(
     name: string,
@@ -1563,9 +1574,9 @@ class EmployeeTaxData {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Use method chaining
+### 메소드 체이닝을 사용하세요
 
-This pattern is very useful and commonly used in many libraries. It allows your code to be expressive, and less verbose. For that reason, use method chaining and take a look at how clean your code will be.
+이 패턴은 매우 유용하고 많은 라이브러리에서 공통적으로 사용하고 있습니다. 이것은 당신의 코드를 표현력이 있게 해주고 덜 장황하게 해줍니다. 이러한 이유로 메소드 체이닝을 사용해서 당신의 코드가 얼마나 명료해지는지 살펴보시길 바랍니다.
 
 **Bad:**
 
@@ -1647,9 +1658,9 @@ const query = new QueryBuilder()
 
 ## SOLID
 
-### Single Responsibility Principle (SRP)
+### 단일 책임 원칙 (SRP)
 
-As stated in Clean Code, "There should never be more than one reason for a class to change". It's tempting to jam-pack a class with a lot of functionality, like when you can only take one suitcase on your flight. The issue with this is that your class won't be conceptually cohesive and it will give it many reasons to change. Minimizing the amount of times you need to change a class is important. It's important because if too much functionality is in one class and you modify a piece of it, it can be difficult to understand how that will affect other dependent modules in your codebase.
+클린 코드에서 말하듯이, "클래스를 변경할 때는 단 한 가지 이유만 존재해야 합니다". 여행갈 때 가방 하나에 많은 것을 챙기는 것과 같이, 클래스를 많은 기능으로 꽉 채우고 싶은 유혹이 있습니다. 이러한 문제는 당신의 클래스가 개념적으로 응집력이 있지 않으며 변경될 많은 이유가 존재한다는 것을 말합니다. 클래스를 변경하는 많은 시간을 줄이는 것은 중요합니다. 왜냐하면 너무 많은 기능이 한 클래스에 있고 그 안에서 하나의 기능을 수정한다면, 다른 종속된 모듈에 어떻게 영향을 줄지 이해하는 것이 어렵기 때문입니다.
 
 **Bad:**
 
@@ -1700,9 +1711,9 @@ class UserSettings {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Open/Closed Principle (OCP)
+### 개방 폐쇄 원칙 (OCP)
 
-As stated by Bertrand Meyer, "software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification." What does that mean though? This principle basically states that you should allow users to add new functionalities without changing existing code.
+Bertrand Meyer가 말했듯이, "소프트웨어 엔터티(클래스, 모듈, 함수 등)는 상속에 개방되어 있습니다. 하지만 수정에는 폐쇄되어 있습니다." 이것이 무엇을 의미할까요? 이 원칙은 기본적으로 기존의 코드를 변경하지 않고 새로운 기능을 추가할 수 있도록 하는 것을 명시합니다.
 
 **Bad:**
 
@@ -1730,20 +1741,20 @@ class HttpRequester {
   async fetch<T>(url: string): Promise<T> {
     if (this.adapter instanceof AjaxAdapter) {
       const response = await makeAjaxCall<T>(url);
-      // transform response and return
+      // response 값을 변경하고 반환합니다.
     } else if (this.adapter instanceof NodeAdapter) {
       const response = await makeHttpCall<T>(url);
-      // transform response and return
+      // response 값을 변경하고 반환합니다.
     }
   }
 }
 
 function makeAjaxCall<T>(url: string): Promise<T> {
-  // request and return promise
+  // 서버에 요청하고 프로미스를 반환합니다.
 }
 
 function makeHttpCall<T>(url: string): Promise<T> {
-  // request and return promise
+  // 서버에 요청하고 프로미스를 반환합니다.
 }
 ```
 
@@ -1753,7 +1764,7 @@ function makeHttpCall<T>(url: string): Promise<T> {
 abstract class Adapter {
   abstract async request<T>(url: string): Promise<T>;
 
-  // code shared to subclasses ...
+  // 하위 클래스와 공유하는 코드 ...
 }
 
 class AjaxAdapter extends Adapter {
@@ -1762,7 +1773,7 @@ class AjaxAdapter extends Adapter {
   }
 
   async request<T>(url: string): Promise<T>{
-    // request and return promise
+    // 서버에 요청하고 프로미스를 반환합니다.
   }
 
   // ...
@@ -1774,7 +1785,7 @@ class NodeAdapter extends Adapter {
   }
 
   async request<T>(url: string): Promise<T>{
-    // request and return promise
+    // 서버에 요청하고 프로미스를 반환합니다.
   }
 
   // ...
@@ -1786,18 +1797,18 @@ class HttpRequester {
 
   async fetch<T>(url: string): Promise<T> {
     const response = await this.adapter.request<T>(url);
-    // transform response and return
+    // response 값을 변경하고 반환합니다.
   }
 }
 ```
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Liskov Substitution Principle (LSP)
+### 리스코프 치환 원칙 (LSP)
 
-This is a scary term for a very simple concept. It's formally defined as "If S is a subtype of T, then objects of type T may be replaced with objects of type S (i.e., objects of type S may substitute objects of type T) without altering any of the desirable properties of that program (correctness, task performed, etc.)." That's an even scarier definition.  
-  
-The best explanation for this is if you have a parent class and a child class, then the parent class and child class can be used interchangeably without getting incorrect results. This might still be confusing, so let's take a look at the classic Square-Rectangle example. Mathematically, a square is a rectangle, but if you model it using the "is-a" relationship via inheritance, you quickly get into trouble.
+매우 단순한 개념을 뜻하는 어려워보이는 용어입니다. "만약 S가 T의 하위 타입이라면, T 타입의 객체는 S 타입의 객체로 대체될 수 있습니다. (예: S 타입 객체는 T 타입 객체로 치환될 수도 있습니다.) 이는 프로그램이 갖추어야할 속성(정확성, 수행되는 작업 등)을 변경하지 않아도 대체될 수 있습니다." 더욱 어려워보이는 정의입니다.
+
+이를 위한 최고의 설명은 다음과 같습니다. 만약 부모 클래스와 자식 클래스가 있다면, 부모 클래스와 자식 클래스는 잘못된 결과 없이 서로 교환하여 사용될 수 있습니다. 여전히 혼란스러울 수 있습니다. 고전적인 정사각형-직사각형 예제를 살펴보세요. 수학적으로, 정사각형은 직사각형입니다. 그러나 상속을 통해 "is-a" 관계로 설계한다면, 당신은 곤경에 빠질 수 있습니다.
 
 **Bad:**
 
@@ -1851,7 +1862,7 @@ function renderLargeRectangles(rectangles: Rectangle[]) {
     const area = rectangle
       .setWidth(4)
       .setHeight(5)
-      .getArea(); // BAD: Returns 25 for Square. Should be 20.
+      .getArea(); // BAD: `Square` 클래스에서는 25를 반환합니다. 20이 반환되어야 합니다.
     rectangle.render(area);
   });
 }
@@ -1910,10 +1921,10 @@ renderLargeShapes(shapes);
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Interface Segregation Principle (ISP)
+### 인터페이스 분리 원칙 (ISP)
 
-ISP states that "Clients should not be forced to depend upon interfaces that they do not use.". This principle is very much related to the Single Responsibility Principle.
-What it really means is that you should always design your abstractions in a way that the clients that are using the exposed methods do not get the whole pie instead. That also include imposing the clients with the burden of implementing methods that they don’t actually need.
+인터페이스 분리 원칙은 "클라이언트는 사용하지 않는 인터페이스에 의존하지 않는다" 라는 것입니다. 이 원칙은 단일 책임 원칙과 많은 관련이 있습니다.
+이 말의 뜻은 클라이언트가 노출된 메소드를 사용하는 대신에 전체 파이를 얻지 않는 방식으로 추상화를 설계해야 한다는 것입니다. 그것은 또한 클라이언트에게 클라이언트가 실제로 필요하지 않은 메소드의 구현을 강요하는 것도 포함합니다.
 
 **Bad:**
 
@@ -1991,17 +2002,17 @@ class EconomicPrinter implements Printer {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Dependency Inversion Principle (DIP)
+### 의존성 역전 원칙 (DIP)
 
-This principle states two essential things:
+이 원칙은 두 가지 필수적인 사항을 명시합니다:
 
-1. High-level modules should not depend on low-level modules. Both should depend on abstractions.
+1. 상위 레벨의 모듈은 하위 레벨의 모듈에 의존하지 않아야 합니다. 두 모듈은 모두 추상화에 의존해야합니다.
 
-2. Abstractions should not depend upon details. Details should depend on abstractions.
+2. 추상화는 세부사항에 의존하지 않아야 합니다. 세부사항은 추상화에 의존해야 합니다.
 
-This can be hard to understand at first, but if you've worked with Angular, you've seen an implementation of this principle in the form of Dependency Injection (DI). While they are not identical concepts, DIP keeps high-level modules from knowing the details of its low-level modules and setting them up. It can accomplish this through DI. A huge benefit of this is that it reduces the coupling between modules. Coupling is a very bad development pattern because it makes your code hard to refactor.  
-  
-DIP is usually achieved by a using an inversion of control (IoC) container. An example of a powerful IoC container for TypeScript is [InversifyJs](https://www.npmjs.com/package/inversify)
+처음에 바로 이해하기는 어려울 수 있습니다. Angular를 사용해봤다면, 의존성 주입(DI)의 형태 안에서 이 원칙의 구현을 확인해봤을 것입니다. 동일한 개념은 아니지만, DIP는 상위 레벨의 모듈이 하위 레벨의 모듈의 세부사항에 접근하고 설정하지 못하도록 지킵니다. DI를 통해서도 마찬가지로 성취할 수 있습니다. 이것의 큰 장점은 모듈 사이의 결합도를 줄일 수 있다는 것입니다. 결합도는 코드를 리팩토링하기 어렵게 하기 때문에 매우 나쁜 개발 패턴입니다.
+
+DIP는 주로 IoC 컨테이너를 사용함으로써 달성됩니다. 타입스크립트를 위한 강력한 IoC 컨테이너의 예제는 [InversifyJs](https://www.npmjs.com/package/inversify)입니다.
 
 **Bad:**
 
@@ -2017,14 +2028,14 @@ type ReportData = {
 
 class XmlFormatter {
   parse<T>(content: string): T {
-    // Converts an XML string to an object T
+    // XML 문자열을 T 객체로 변환
   }
 }
 
 class ReportReader {
 
-  // BAD: We have created a dependency on a specific request implementation.
-  // We should just have ReportReader depend on a parse method: `parse`
+  // BAD: 특정 요청의 구현에 의존하는 것을 만들었습니다.
+  // `parse` 메소드에 의존하는 `ReportReader`를 만들어야 합니다.
   private readonly formatter = new XmlFormatter();
 
   async read(path: string): Promise<ReportData> {
@@ -2056,14 +2067,14 @@ interface Formatter {
 
 class XmlFormatter implements Formatter {
   parse<T>(content: string): T {
-    // Converts an XML string to an object T
+    // XML 문자열을 T 객체로 변환
   }
 }
 
 
 class JsonFormatter implements Formatter {
   parse<T>(content: string): T {
-    // Converts a JSON string to an object T
+    // JSON 문자열을 T 객체로 변환
   }
 }
 
@@ -2081,7 +2092,7 @@ class ReportReader {
 const reader = new ReportReader(new XmlFormatter());
 await report = await reader.read('report.xml');
 
-// or if we had to read a json report
+// 또는 json 보고서가 필요한 경우
 const reader = new ReportReader(new JsonFormatter());
 await report = await reader.read('report.json');
 ```
@@ -2090,41 +2101,40 @@ await report = await reader.read('report.json');
 
 ## 테스트
 
-Testing is more important than shipping. If you have no tests or an inadequate amount, then every time you ship code you won't be sure that you didn't break anything.
-Deciding on what constitutes an adequate amount is up to your team, but having 100% coverage (all statements and branches)
-is how you achieve very high confidence and developer peace of mind. This means that in addition to having a great testing framework, you also need to use a good [coverage tool](https://github.com/gotwarlost/istanbul).
+테스트는 배포보다 중요합니다. 테스트가 없거나 부족한 경우, 코드를 배포할 때마다 당신은 어떤 것이 작동하지 않을지 확실하지 않을 것입니다.
+적절한 양의 테스트를 구성하는 것은 당신의 팀에게 달려있지만, (모든 문장과 브랜치에서) 100%의 커버리지를 가진다면 매우 높은 자신감과 마음의 평화를 얻을 것입니다. 이는 훌륭한 테스트 프레임워크뿐만 아니라, 좋은 [커버리지 도구](https://github.com/gotwarlost/istanbul)를 사용해야 한다는 것을 의미합니다.
 
-There's no excuse to not write tests. There are [plenty of good JS test frameworks](http://jstherightway.org/#testing-tools) with typings support for TypeScript, so find one that your team prefers. When you find one that works for your team, then aim to always write tests for every new feature/module you introduce. If your preferred method is Test Driven Development (TDD), that is great, but the main point is to just make sure you are reaching your coverage goals before launching any feature, or refactoring an existing one.  
+테스트를 작성하지 않을 이유는 없습니다. 타입스크립트의 타입을 지원하는 [많은 양의 좋은 자바스크립트 테스트 프레임워크](http://jstherightway.org/#testing-tools)가 있으므로 당신의 팀이 선호하는 것을 찾아 사용하세요. 당신의 팀에 적합한 테스트 프레임워크를 찾았다면, 당신이 만드는 모든 새로운 기능/모듈을 위한 테스트를 항상 작성하는 것을 목표로 하세요. 테스트 기반 개발(TDD)이 당신이 선호하는 방법이라면, 매우 좋습니다. 하지만 중요한 건 어떤 기능을 만들거나 기존의 것을 리팩토링하기 전에 목표하는 커버리지를 달성하는 것입니다.
 
-### The three laws of TDD
+### TDD의 세 가지 법칙
 
-1. You are not allowed to write any production code unless it is to make a failing unit test pass.
+1. 실패하는 단위 테스트를 작성하기 전에는 실제 코드를 작성하지 마세요.
 
-2. You are not allowed to write any more of a unit test than is sufficient to fail; and compilation failures are failures.
+2. 컴파일은 실패하지 않으면서 실행이 실패하는 정도로만 단위 테스트를 작성하세요.
 
-3. You are not allowed to write any more production code than is sufficient to pass the one failing unit test.
-
-**[⬆ 맨 위로 이동](#목차)**
-
-### F.I.R.S.T. rules
-
-Clean tests should follow the rules:
-
-- **Fast** tests should be fast because we want to run them frequently.
-
-- **Independent** tests should not depend on each other. They should provide same output whether run independently or all together in any order.
-
-- **Repeatable** tests should be repeatable in any environment and there should be no excuse for why they fail.
-
-- **Self-Validating** a test should answer with either *Passed* or *Failed*. You don't need to compare log files to answer if a test passed.
-
-- **Timely** unit tests should be written before the production code. If you write tests after the production code, you might find writing tests too hard.
+3. 실패하는 단위 테스트를 통과할 정도로만 실제 코드를 작성하세요.
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Single concept per test
+### F.I.R.S.T 규칙
 
-Tests should also follow the *Single Responsibility Principle*. Make only one assert per unit test.
+명료한 테스트는 다음 규칙을 따라야 합니다:
+
+- **Fast** 테스트는 빈번하게 실행되므로 빨라야 합니다.
+
+- **Independent** 테스트는 서로 종속적이지 않습니다. 독립적으로 실행하든지 순서 상관없이 모두 실행하든지 동일한 결과가 나와야 합니다.
+
+- **Repeatable** 테스트는 어떤 환경에서든 반복될 수 있습니다. 테스트가 실패하는데에 이유가 없어야 합니다.
+
+- **Self-Validating** 테스트는 *통과* 혹은 *실패*로 답해야 합니다. 테스트가 통과되었다면 로그 파일을 보며 비교할 필요는 없습니다.
+
+- **Timely** 단위 테스트는 실제 코드를 작성하기 전에 작성해야 합니다. 실제 코드를 작성한 후에 테스트를 작성한다면, 테스트를 작성하는 것이 너무 고단하게 느껴질 것입니다.
+
+**[⬆ 맨 위로 이동](#목차)**
+
+### 테스트 하나에 하나의 개념을 작성하세요
+
+또한, 테스트는 *단일 책임 원칙*을 따라야 합니다. 단위 테스트 하나당 하나의 assert 구문을 작성하세요.
 
 **Bad:**
 
@@ -2172,9 +2182,9 @@ describe('AwesomeDate', () => {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### The name of the test should reveal its intention
+### 테스트의 이름은 테스트의 의도가 드러나야 합니다
 
-When a test fail, its name is the first indication of what may have gone wrong.
+테스트가 실패할 때, 테스트의 이름은 어떤 것이 잘못되었는지 볼 수 있는 첫 번째 표시입니다.
 
 **Bad:**
 
@@ -2208,11 +2218,11 @@ describe('Calendar', () => {
 
 ## 동시성
 
-### Prefer promises vs callbacks
+### 프로미스 vs 콜백
 
-Callbacks aren't clean, and they cause excessive amounts of nesting *(the callback hell)*.  
-There are utilities that transform existing functions using the callback style to a version that returns promises
-(for Node.js see [`util.promisify`](https://nodejs.org/dist/latest-v8.x/docs/api/util.html#util_util_promisify_original), for general purpose see [pify](https://www.npmjs.com/package/pify), [es6-promisify](https://www.npmjs.com/package/es6-promisify))
+콜백은 명료하지 않고, 지나친 양의 중첩된 *콜백 지옥*을 유발할 수 있습니다.  
+콜백 방식을 사용하고 있는 기존의 함수를 프로미스를 반환하는 함수로 변환시켜주는 유틸리티 라이브러리가 있습니다.
+(Node.js를 사용한다면 [`util.promisify`](https://nodejs.org/dist/latest-v8.x/docs/api/util.html#util_util_promisify_original)를 확인해주세요. 일반적인 목적이라면 [pify](https://www.npmjs.com/package/pify), [es6-promisify](https://www.npmjs.com/package/es6-promisify)를 확인해주세요.)
 
 **Bad:**
 
@@ -2264,22 +2274,22 @@ downloadPage('https://en.wikipedia.org/wiki/Robert_Cecil_Martin', 'article.html'
   .catch(error => console.error(error));  
 ```
 
-Promises supports a few helper methods that help make code more conscise:  
+프로미스는 코드를 더욱 간결하게 해주는 몇몇의 헬퍼 메소드를 지원합니다:  
 
-| Pattern                  | Description                                |  
+| 패턴                      | 설명                                        |  
 | ------------------------ | -----------------------------------------  |  
-| `Promise.resolve(value)` | Convert a value into a resolved promise.   |  
-| `Promise.reject(error)`  | Convert an error into a rejected promise.  |  
-| `Promise.all(promises)`  |Returns a new promise which is fulfilled with an array of fulfillment values for the passed promises or rejects with the reason of the first promise that rejects. |
-| `Promise.race(promises)`|Returns a new promise which is fulfilled/rejected with the result/error of the first settled promise from the array of passed promises. |
+| `Promise.resolve(value)` | 해결(resolve)된 프로미스로 값을 변환함.            |  
+| `Promise.reject(error)`  | 거부(reject)된 프로미스로 에러를 변환함.            |  
+| `Promise.all(promises)`  | 전달된 모든 프로미스가 이행한 값의 배열을 이행하는 새 프로미스 객체를 반환하거나 거부된 첫 번째 프로미스의 이유로 거부함. |
+| `Promise.race(promises)`| 전달된 프로미스의 배열에서 가장 먼저 완료된 결과/에러로 이행/거부된 새 프로미스 객체를 반환함. |
 
-`Promise.all` is especially useful when there is a need to run tasks in parallel. `Promise.race` makes it easier to implement things like timeouts for promises.
+`Promise.all`는 병렬적으로 작업을 수행할 필요가 있을 때 유용합니다. `Promise.race`는 프로미스를 위한 타임아웃과 같은 것을 구현하는 것을 쉽게 할 수 있도록 도와줍니다.
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### Async/Await are even cleaner than Promises
+### 프로미스보다 `async`/`await`가 더 명료합니다
 
-With `async`/`await` syntax you can write code that is far cleaner and more understandable than chained promises. Within a function prefixed with `async` keyword you have a way to tell the JavaScript runtime to pause the execution of code on the `await` keyword (when used on a promise).
+`async`/`await` 구문을 사용하면 연결된 프로미스 구문보다 훨씬 더 명료하고 이해하기 쉬운 코드를 작성할 수 있습니다. `async` 키워드가 앞에 붙여진 함수는  `await` 키워드에서 코드의 실행을 멈춘다는 것을 자바스크립트 런타임에게 알려줍니다.
 
 **Bad:**
 
@@ -2366,7 +2376,7 @@ async function get(): Promise<Item[]> {
 }
 ```
 
-`Error` 타입을 사용하는 장점은 `try/catch/finally` 구문에 의해 지원되고 암시적으로 모든 에러가 디버깅에 매우 강력한 `stack` 속성을 가지고 있기 떄문입니다.  
+`Error` 타입을 사용하는 장점은 `try/catch/finally` 구문에 의해 지원되고 암시적으로 모든 에러가 디버깅에 매우 강력한 `stack` 속성을 가지고 있기 때문입니다.  
 또 하나의 대안은 있습니다. `throw` 구문을 사용하지 않는 대신, 항상 사용자 정의 객체를 반환하는 것입니다.  
 타입스크립트는 이것을 훨씬 더 쉽게 만듭니다.
 아래의 예제를 확인하세요:
@@ -2390,9 +2400,9 @@ function calculateTotal(items: Item[]): Failable<number, 'empty'> {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### 잡힌 에러를 무시하지 마세요
+### `catch` 절에서 에러 처리 부분을 비워두지 마세요
 
-잡힌 에러를 바라보는 것만으로는 해당 에러를 고치거나 대응할 수 없습니다. 콘솔에 에러를 기록하는 것(`console.log`)은 콘솔에 출력된 많은 것들 사이에서 발견되지 못할 수 있기 때문에 그다지 좋은 선택은 아닙니다. 당신이 어떤 코드를 `try/catch`로 감쌌다면, 그 코드에서 에러가 일어날 수 있으며, 즉 에러가 발생했을 때에 대한 계획이나 장치가 있어야 한다는 것을 의미합니다.
+`catch` 절에서 단지 에러를 받는 것만으로는 해당 에러에 대응할 수 없습니다. 또한, 콘솔에 에러를 기록하는 것(`console.log`)은 콘솔에 출력된 많은 것들 사이에서 발견되지 못할 수 있기 때문에 그다지 좋은 선택은 아닙니다. 당신이 어떤 코드를 `try/catch`로 감쌌다면, 그 코드에서 에러가 일어날 수 있으며, 즉 에러가 발생했을 때에 대한 계획이나 장치가 있어야 한다는 것을 의미합니다.
 
 **Bad:**
 
@@ -2426,9 +2436,9 @@ try {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-### 거부된 프로미스를 무시하지 마세요
+### 요청이 거부된 프로미스 객체를 무시하지 마세요
 
-위와 같은 이유로 `try/catch`로부터 잡힌 에러를 무시하면 안됩니다.
+위와 같이 `try/catch` 절에서 받은 에러 처리 부분을 비워두면 안됩니다.
 
 **Bad:**
 
@@ -2711,7 +2721,7 @@ import { UserService } from '@services/UserService';
 
 ### 주석 대신에 자체적으로 설명 가능한 코드를 작성하세요
 
-주석은 사과일 뿐, 필요한 것이 아닙니다. 좋은 코드는 대부분 그 존재 자체로 문서화가 됩니다.
+주석은 변명일 뿐, 필요하지 않습니다. 좋은 코드는 대부분 그 존재 자체로 문서화가 됩니다.
 
 **Bad:**
 
@@ -2763,10 +2773,10 @@ type User = {
 
 ```ts
 /**
- * 2016-12-20: Removed monads, didn't understand them (RM)
- * 2016-10-01: Improved using special monads (JP)
- * 2016-02-03: Added type-checking (LI)
- * 2015-03-14: Implemented combine (JR)
+ * 2016-12-20: 이해하지 못해서 모나드를 제거함 (RM)
+ * 2016-10-01: 특별한 모나드를 사용해 개선함 (JP)
+ * 2016-02-03: 타입 체킹 추가함 (LI)
+ * 2015-03-14: combine 함수를 구현함 (JR)
  */
 function combine(a: number, b: number): number {
   return a + b;
@@ -2792,7 +2802,7 @@ function combine(a: number, b: number): number {
 
 ```ts
 ////////////////////////////////////////////////////////////////////////////////
-// Client class
+// Client 클래스
 ////////////////////////////////////////////////////////////////////////////////
 class Client {
   id: number;
@@ -2801,14 +2811,14 @@ class Client {
   contact: Contact;
 
   ////////////////////////////////////////////////////////////////////////////////
-  // public methods
+  // public 메소드
   ////////////////////////////////////////////////////////////////////////////////
   public describe(): string {
     // ...
   }
 
   ////////////////////////////////////////////////////////////////////////////////
-  // private methods
+  // private 메소드
   ////////////////////////////////////////////////////////////////////////////////
   private describeAddress(): string {
     // ...
@@ -2849,7 +2859,7 @@ class Client {
 
 추후에 개선을 위해 코드에 메모를 남겨야할 때, `// TODO` 주석을 사용하세요. 대부분의 IDE는 이런 종류의 주석을 특별하게 지원하기 때문에 해야할 일 목록을 빠르게 검토할 수 있습니다.
 
-하지만 *TODO* 주석이 나쁜 코드에 대한 변명은 아니라는 것을 명심하세요.
+하지만 *TODO* 주석이 나쁜 코드를 작성할 이유는 아니라는 것을 명심하세요.
 
 **Bad:**
 
@@ -2889,4 +2899,15 @@ function getActiveSubscriptions(): Promise<Subscription[]> {
 
 **[⬆ 맨 위로 이동](#목차)**
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2F738%2Fclean-code-typescript)](https://hits.seeyoufarm.com)
+## 번역에 도움을 주신 분들
+
+### 리뷰
+
+- [@samslow](https://github.com/samslow)
+- [@Space0726](https://github.com/Space0726)
+- [@zwonlala](https://github.com/zwonlala)
+- [@joonghyeob-shin](https://github.com/joonghyeob-shin)
+
+### 참고자료
+
+- [qkraudghgh/clean-code-javascript-ko](https://github.com/qkraudghgh/clean-code-javascript-ko)
