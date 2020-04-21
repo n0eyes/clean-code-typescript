@@ -1,5 +1,7 @@
-<h1 align="center">
+<p align="center">
     <img width="380" src="https://github.com/738/clean-code-typescript/blob/master/clean-code-typescript.png?raw=true" />
+</p>
+<h1 align="center">
     clean-code-typescript
 </h1>
 
