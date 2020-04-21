@@ -1,6 +1,6 @@
 <h1 align="center">
-    <img width="380" src="/clean-code-typescript.png" />
-    <br> clean-code-typescript
+    <img width="380" src="https://github.com/738/clean-code-typescript/blob/master/clean-code-typescript.png?raw=true" />
+    clean-code-typescript
 </h1>
 
 <p align="center">
